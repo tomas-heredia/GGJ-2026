@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c10wntvijx6to"]
+
+[ext_resource type="PackedScene" uid="uid://dprhucolhggsn" path="res://Art/character/table.fbx" id="1_4r5oj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_meify"]
+size = Vector3(1.634, 0.919, 1.634)
+
+[node name="Table" type="StaticBody3D"]
+
+[node name="table" parent="." instance=ExtResource("1_4r5oj")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.032043457, 0.45079434, -0.0035572052)
+shape = SubResource("BoxShape3D_meify")

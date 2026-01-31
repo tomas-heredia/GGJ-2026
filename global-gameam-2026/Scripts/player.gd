@@ -2,11 +2,15 @@ extends CharacterBody3D
 
 @export var walk_speed := 5.0
 @export var sprint_speed := 9.0
+var current_direction: float = 0.0
 @export var accel := 18.0
 @export var decel := 22.0
 @export var wall_slide_speed := 1.0
+var wall_jump_cooldown: float = 0.0
 @export var wall_jump_pushback := 100
+@export var wall_jump_true = true
 @export var jump_velocity := 4.5
+var has_jumped := false
 # Ability flags (driven by the equipped mask)
 @export var mask_double_jump := false
 @export var mask_wall_bounce := false
@@ -14,7 +18,7 @@ extends CharacterBody3D
 @onready var face_socket: Node3D = $Marker3D
 @onready var mesh: Node3D = $MeshInstance3D
 var current_speed: float = 0.0
-var jump_count: int = 0
+var jumps_used: int = 0
 # Mask equip vars (Mask.gd sets nearby_mask on enter/exit)
 var nearby_mask: Node3D = null
 var equipped_mask: Node3D = null
@@ -22,7 +26,7 @@ var equipped_mask: Node3D = null
 
 func _physics_process(delta: float) -> void:
 	# Input (left / right only)
-	var x_input := Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	var x_input := Input.get_axis("move_left", "move_right")
 
 	# Gravity
 	if not is_on_floor():
@@ -37,27 +41,29 @@ func _physics_process(delta: float) -> void:
 
 	# Reset jumps when grounded
 	if is_on_floor():
-		jump_count = 0
+		jumps_used = 0
+	
+	# Handle no jump from floor
+	var max_jumps = 1
+	if mask_double_jump:
+		max_jumps = 2
 
-	# Jump (ground)
-	if Input.is_action_pressed("jump") and is_on_floor():
-		velocity.y = jump_velocity
-
-	# Double Jump (mask power)
-	if mask_double_jump and Input.is_action_just_pressed("jump") and not is_on_floor() and jump_count < 1:
-		velocity.y = jump_velocity
-		jump_count += 1
+	# Jump / Double Jump 
+	if Input.is_action_just_pressed("jump"):
+		if jumps_used < max_jumps:
+			velocity.y = jump_velocity
+			jumps_used += 1
 
 	# Right Wall Jump (only when wall-slide power is enabled)
-	if mask_wall_bounce and is_on_wall() and Input.is_action_pressed("jump") and Input.is_action_pressed("move_right"):
+	if mask_wall_bounce and is_on_wall() and Input.is_action_just_pressed("jump") and wall_jump_true:
 		velocity.y = jump_velocity
-		velocity.x = -wall_jump_pushback
-		
-	# Wall Jump (only when wall-slide power is enabled)
-	if mask_wall_bounce and is_on_wall() and Input.is_action_just_pressed("jump"):
-		velocity.y = jump_velocity
-		velocity.x = wall_jump_pushback
-
+		# Push away from wall using the wall normal
+		velocity.x = get_wall_normal().x * wall_jump_pushback
+		wall_jump_true = false
+	
+	if not is_on_wall():
+		wall_jump_true = true
+	
 	# Choose target speed
 	var target_speed: float = walk_speed
 	if Input.is_action_pressed("sprint"):
@@ -65,17 +71,22 @@ func _physics_process(delta: float) -> void:
 
 	# Smooth acceleration / deceleration
 	if abs(x_input) > 0.001:
+		current_direction = signf(x_input)
 		current_speed = move_toward(current_speed, target_speed, accel * delta)
 	else:
 		current_speed = move_toward(current_speed, 0.0, decel * delta)
-
+	
+	# Face direction of movement
+	if current_direction != 0.0:
+		mesh.scale.x = current_direction
+	
 	# Apply movement
-	velocity.x = x_input * current_speed
+	velocity.x = current_direction * current_speed
 	velocity.z = 0.0
-
 	move_and_slide()
 
 
+# MASK MECHANICS
 func _process(_delta: float) -> void:
 	if nearby_mask and Input.is_action_just_pressed("interact"):
 		equip_mask(nearby_mask)
@@ -130,3 +141,4 @@ func equip_mask(mask: Node3D) -> void:
 		apply_mask_power(mask.worn_mask)
 	else:
 		clear_mask_powers()
+		
