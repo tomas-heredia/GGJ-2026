@@ -7,12 +7,13 @@ func _ready():
 
 func _process(_delta):
 	time += 1
-	$Sprite3D.position += Vector3(0, sin(time) * 2, 0)
+	$MeshInstance3D.position += Vector3(0, sin(time) * 0.02, 0)
 
 func _on_area_3d_body_entered(body: Node3D):
 	if body.name == 'CharacterBody3D':
 		set_process(true)
-		$Timer.start(0.7)
+		$Timer.start()
 
 func _on_timer_timeout():
+	print("Timer stop.")
 	queue_free()
