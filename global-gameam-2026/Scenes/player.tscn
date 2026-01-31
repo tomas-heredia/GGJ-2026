@@ -1,23 +1,26 @@
 [gd_scene load_steps=4 format=3 uid="uid://rm3wg8bi4pdg"]
 
 [ext_resource type="Script" uid="uid://ba3oq6o6k4ylk" path="res://Scripts/player.gd" id="1_4flbx"]
+[ext_resource type="PackedScene" uid="uid://v5spku7l78q8" path="res://Art/character/rat_large.fbx" id="2_cvnsp"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_sh265"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sh265"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_6t5aa"]
+radius = 0.5207036
 
 [node name="CharacterBody3D" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_4flbx")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." groups=["player"]]
-mesh = SubResource("CapsuleMesh_sh265")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_sh265")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44651645, 0)
+shape = SubResource("SphereShape3D_6t5aa")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4911118, 0.4283929, 3.978195)
+transform = Transform3D(1, 0, 0, 0, 0.9982024, 0.05993358, 0, -0.05993358, 0.9982024, 1.4911118, 0.9973773, 3.978195)
 current = true
 
 [node name="Marker3D" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.54341626, 0.5266397, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1715743, 0.5266397, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+
+[node name="rat_large" parent="MeshInstance3D" instance=ExtResource("2_cvnsp")]
+transform = Transform3D(2.9802322e-08, 0, 1, 0, 1, 0, -1, 0, 2.9802322e-08, 0, 0, 0)
