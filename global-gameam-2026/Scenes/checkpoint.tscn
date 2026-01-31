@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi4vkebgn5dh4"]
+
+[ext_resource type="Script" uid="uid://cgaudht5ykid1" path="res://Scripts/checkpoint.gd" id="1_lbcco"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jkya8"]
+
+[node name="Checkpoint" type="Node3D"]
+script = ExtResource("1_lbcco")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_jkya8")
+
+[node name="Marker3D" type="Marker3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16438496, 0.18319106, 0)
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

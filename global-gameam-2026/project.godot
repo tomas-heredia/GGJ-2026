@@ -15,11 +15,19 @@ run/main_scene="uid://4u3bk8nn8nwy"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*res://Scripts/Global.gd"
+
 [file_customization]
 
 folder_colors={
 "res://Scenes/": "red"
 }
+
+[global_group]
+
+player=""
 
 [input]
 

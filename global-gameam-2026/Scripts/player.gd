@@ -10,6 +10,7 @@ var wall_jump_cooldown: float = 0.0
 @export var wall_jump_pushback := 100
 @export var wall_jump_true = true
 @export var jump_velocity := 4.5
+var has_jumped := false
 # Ability flags (driven by the equipped mask)
 @export var mask_double_jump := false
 @export var mask_wall_bounce := false
@@ -17,7 +18,7 @@ var wall_jump_cooldown: float = 0.0
 @onready var face_socket: Node3D = $Marker3D
 @onready var mesh: Node3D = $MeshInstance3D
 var current_speed: float = 0.0
-var jump_count: int = 0
+var jumps_used: int = 0
 # Mask equip vars (Mask.gd sets nearby_mask on enter/exit)
 var nearby_mask: Node3D = null
 var equipped_mask: Node3D = null
@@ -40,16 +41,18 @@ func _physics_process(delta: float) -> void:
 
 	# Reset jumps when grounded
 	if is_on_floor():
-		jump_count = 0
+		jumps_used = 0
+	
+	# Handle no jump from floor
+	var max_jumps = 1
+	if mask_double_jump:
+		max_jumps = 2
 
-	# Jump (ground)
-	if Input.is_action_pressed("jump") and is_on_floor():
-		velocity.y = jump_velocity
-
-	# Double Jump (mask power)
-	if mask_double_jump and Input.is_action_just_pressed("jump") and not is_on_floor() and jump_count < 1:
-		velocity.y = jump_velocity
-		jump_count += 1
+	# Jump / Double Jump 
+	if Input.is_action_just_pressed("jump"):
+		if jumps_used < max_jumps:
+			velocity.y = jump_velocity
+			jumps_used += 1
 
 	# Right Wall Jump (only when wall-slide power is enabled)
 	if mask_wall_bounce and is_on_wall() and Input.is_action_just_pressed("jump") and wall_jump_true:

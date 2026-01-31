@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://dyfrp0eaua0k1"]
+
+[ext_resource type="PackedScene" uid="uid://rm3wg8bi4pdg" path="res://Scenes/player.tscn" id="1_ko2s7"]
+[ext_resource type="PackedScene" uid="uid://cv2p01h1vlr2p" path="res://Scenes/Mask.tscn" id="2_gxb1y"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ko2s7"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_ig7tw"]
+sky_material = SubResource("ProceduralSkyMaterial_ko2s7")
+
+[sub_resource type="Environment" id="Environment_gxb1y"]
+background_mode = 2
+sky = SubResource("Sky_ig7tw")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gxb1y"]
+albedo_color = Color(0.65038556, 0.2357288, 0.17591706, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_0dy5s"]
+
+[node name="Test" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gxb1y")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.24999999, 0.42142832, -0.3630732, 0.83100903, -0.26906922, 0.825032, 0.49691445, 0, 1.6142716, 0)
+shadow_enabled = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(3.0894706, 0, 0, 0, 1, 0, 0, 0, 2.0857952, 2.908285, 1.9281439, -2.2491832)
+use_collision = true
+size = Vector3(12.135742, 0.3173828, 3.1865234)
+
+[node name="Mask" parent="." instance=ExtResource("2_gxb1y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.456516, 2.583808, -1.5514841)
+worn_mask = 1
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mask"]
+material_overlay = SubResource("StandardMaterial3D_gxb1y")
+mesh = SubResource("SphereMesh_0dy5s")
+
+[node name="Mask2" parent="." instance=ExtResource("2_gxb1y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8132615, 2.5524163, -1.8515024)
+worn_mask = 2
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.094155, 4.1776724, -3.243339)
+use_collision = true
+size = Vector3(0.3848877, 5.055725, 5.1987305)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.393962, 4.729262, -3.1172848)
+use_collision = true
+size = Vector3(0.3848877, 5.055725, 5.1987305)
+
+[node name="CharacterBody3D2" parent="." instance=ExtResource("1_ko2s7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3443369, 2.0868354, -2.0644584)
