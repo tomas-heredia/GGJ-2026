@@ -1,53 +1,62 @@
 extends CharacterBody3D
 
-@export var walk_speed:= 5.0
-@export var sprint_speed:= 9.0
-@export var accel:= 18.0
-@export var decel:= 22.0
-@export var wall_slide_speed := 1
-@export var jump_velocity:= 4.5
-@export var jump_count := 0
-@export var mask_double_jump:= false
-@export var mask_wall_slide := false
+@export var walk_speed := 5.0
+@export var sprint_speed := 9.0
+@export var accel := 18.0
+@export var decel := 22.0
+@export var wall_slide_speed := 1.0
+@export var wall_jump_pushback := 100
+@export var jump_velocity := 4.5
+# Ability flags (driven by the equipped mask)
+@export var mask_double_jump := false
+@export var mask_wall_bounce := false
 @export var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var face_socket: Node3D = $Marker3D
-
+@onready var mesh: Node3D = $MeshInstance3D
 var current_speed: float = 0.0
+var jump_count: int = 0
+# Mask equip vars (Mask.gd sets nearby_mask on enter/exit)
+var nearby_mask: Node3D = null
+var equipped_mask: Node3D = null
 
-#MOVEMENT
-func _physics_process(delta):
+
+func _physics_process(delta: float) -> void:
 	# Input (left / right only)
 	var x_input := Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
 
 	# Gravity
 	if not is_on_floor():
 		velocity.y -= gravity * delta
+
 		# Wall friction / wall slide
-		if mask_wall_slide and is_on_wall():
+		if mask_wall_bounce and is_on_wall():
 			var wall_normal: Vector3 = get_wall_normal()
 			var pushing_into_wall: bool = signf(x_input) == -signf(wall_normal.x)
 			if pushing_into_wall:
 				velocity.y = max(velocity.y, -wall_slide_speed)
-		
-	
-	# Mask 1 = Double Jump
+
+	# Reset jumps when grounded
 	if is_on_floor():
 		jump_count = 0
-	if mask_double_jump and Input.is_action_just_pressed("jump") and !is_on_floor() and jump_count < 1:
-		velocity.y = jump_velocity
-		jump_count += 1
-		
-	#Jump
+
+	# Jump (ground)
 	if Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
+
+	# Double Jump (mask power)
+	if mask_double_jump and Input.is_action_just_pressed("jump") and not is_on_floor() and jump_count < 1:
+		velocity.y = jump_velocity
+		jump_count += 1
+
+	# Right Wall Jump (only when wall-slide power is enabled)
+	if mask_wall_bounce and is_on_wall() and Input.is_action_pressed("jump") and Input.is_action_pressed("move_right"):
+		velocity.y = jump_velocity
+		velocity.x = -wall_jump_pushback
 		
-	#Right Wall Jump
-	if mask_wall_slide and is_on_wall() and Input.is_action_just_pressed("jump") and Input.is_action_pressed("move_right"): 
+	# Wall Jump (only when wall-slide power is enabled)
+	if mask_wall_bounce and is_on_wall() and Input.is_action_just_pressed("jump"):
 		velocity.y = jump_velocity
-	
-	#Left Wall Jump	
-	if mask_wall_slide and is_on_wall() and Input.is_action_just_pressed("jump") and Input.is_action_pressed("move_left"): 
-		velocity.y = jump_velocity
+		velocity.x = wall_jump_pushback
 
 	# Choose target speed
 	var target_speed: float = walk_speed
@@ -55,7 +64,7 @@ func _physics_process(delta):
 		target_speed = sprint_speed
 
 	# Smooth acceleration / deceleration
-	if (abs(x_input)) > 0.001:
+	if abs(x_input) > 0.001:
 		current_speed = move_toward(current_speed, target_speed, accel * delta)
 	else:
 		current_speed = move_toward(current_speed, 0.0, decel * delta)
@@ -65,16 +74,35 @@ func _physics_process(delta):
 	velocity.z = 0.0
 
 	move_and_slide()
-	
 
-# Mask EQUP MECHANICS	
-var nearby_mask: Node3D = null
-var equipped_mask: Node3D = null
 
 func _process(_delta: float) -> void:
 	if nearby_mask and Input.is_action_just_pressed("interact"):
 		equip_mask(nearby_mask)
-		mask_double_jump = true
+
+
+# --- Mask power handling ---
+
+func clear_mask_powers() -> void:
+	mask_double_jump = false
+	mask_wall_bounce = false
+
+func apply_mask_power(power: int) -> void:
+	clear_mask_powers()
+
+	# We match against the enum defined in Mask.gd.
+	# This works as long as the enum values are:
+	# NONE=0, DOUBLE_JUMP=1, WALL_BOUNCE=2
+	match power:
+		0: # NONE
+			pass
+		1: # DOUBLE_JUMP
+			mask_double_jump = true
+		2: # WALL_BOUNCE (using this to enable wall slide/jump mechanics)
+			mask_wall_bounce = true
+		_:
+			pass
+
 
 func equip_mask(mask: Node3D) -> void:
 	# If only one mask allowed, drop/replace old
@@ -90,12 +118,15 @@ func equip_mask(mask: Node3D) -> void:
 	mask.transform = Transform3D.IDENTITY
 
 	# Disable pickup collider so it doesn’t keep triggering
-	var area := mask.get_node_or_null("Area3D") as Area3D
-	if area:
-		area.monitoring = false
-		area.monitorable = false
+	var pickup_area := mask.get_node_or_null("Area3D") as Area3D
+	if pickup_area:
+		pickup_area.monitoring = false
+		pickup_area.monitorable = false
 
 	equipped_mask = mask
 	nearby_mask = null
 	
-	
+	if "worn_mask" in mask:
+		apply_mask_power(mask.worn_mask)
+	else:
+		clear_mask_powers()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cl82noaixl6qv"]
+[gd_scene load_steps=10 format=3 uid="uid://cl82noaixl6qv"]
 
 [ext_resource type="PackedScene" uid="uid://rm3wg8bi4pdg" path="res://Scenes/player.tscn" id="1_ko2s7"]
 [ext_resource type="PackedScene" uid="uid://cv2p01h1vlr2p" path="res://Scenes/Mask.tscn" id="2_gxb1y"]
@@ -15,6 +15,11 @@ background_mode = 2
 sky = SubResource("Sky_ig7tw")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0dy5s"]
+albedo_color = Color(0.7890625, 0.29560742, 0.41865987, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_f2nln"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gxb1y"]
 albedo_color = Color(0.65038556, 0.2357288, 0.17591706, 1)
@@ -38,8 +43,14 @@ size = Vector3(12.135742, 0.3173828, 3.1865234)
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_ko2s7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9795732, 3.134069, -1.3638427)
 
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="CharacterBody3D"]
+transform = Transform3D(0.9890159, 0.1478094, 0, -0.1478094, 0.9890159, 0, 0, 0, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_0dy5s")
+mesh = SubResource("CapsuleMesh_f2nln")
+
 [node name="Mask" parent="." instance=ExtResource("2_gxb1y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.456516, 2.583808, -1.5514841)
+worn_mask = 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Mask"]
 material_overlay = SubResource("StandardMaterial3D_gxb1y")
@@ -47,6 +58,7 @@ mesh = SubResource("SphereMesh_0dy5s")
 
 [node name="Mask2" parent="." instance=ExtResource("2_gxb1y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8132615, 2.5524163, -1.8515024)
+worn_mask = 2
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.094155, 4.1776724, -3.243339)

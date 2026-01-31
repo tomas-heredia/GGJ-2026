@@ -9,7 +9,7 @@
 [node name="CharacterBody3D" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_4flbx")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." groups=["player"]]
 mesh = SubResource("CapsuleMesh_sh265")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
