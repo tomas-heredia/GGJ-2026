@@ -4,9 +4,11 @@ extends CharacterBody3D
 @export var sprint_speed:= 9.0
 @export var accel:= 18.0
 @export var decel:= 22.0
+@export var wall_slide_speed := 1
 @export var jump_velocity:= 4.5
 @export var jump_count := 0
 @export var mask_double_jump:= false
+@export var mask_wall_slide := false
 @export var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var face_socket: Node3D = $Marker3D
 
@@ -14,15 +16,23 @@ var current_speed: float = 0.0
 
 #MOVEMENT
 func _physics_process(delta):
+	# Input (left / right only)
+	var x_input := Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+
 	# Gravity
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-	
+		# Wall friction / wall slide
+		if mask_wall_slide and is_on_wall():
+			var wall_normal: Vector3 = get_wall_normal()
+			var pushing_into_wall: bool = signf(x_input) == -signf(wall_normal.x)
+			if pushing_into_wall:
+				velocity.y = max(velocity.y, -wall_slide_speed)
+		
 	
 	# Mask 1 = Double Jump
 	if is_on_floor():
 		jump_count = 0
-		
 	if mask_double_jump and Input.is_action_just_pressed("jump") and !is_on_floor() and jump_count < 1:
 		velocity.y = jump_velocity
 		jump_count += 1
@@ -30,9 +40,14 @@ func _physics_process(delta):
 	#Jump
 	if Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
-
-	# Input (left / right only)
-	var x_input := Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+		
+	#Right Wall Jump
+	if mask_wall_slide and is_on_wall() and Input.is_action_just_pressed("jump") and Input.is_action_pressed("move_right"): 
+		velocity.y = jump_velocity
+	
+	#Left Wall Jump	
+	if mask_wall_slide and is_on_wall() and Input.is_action_just_pressed("jump") and Input.is_action_pressed("move_left"): 
+		velocity.y = jump_velocity
 
 	# Choose target speed
 	var target_speed: float = walk_speed

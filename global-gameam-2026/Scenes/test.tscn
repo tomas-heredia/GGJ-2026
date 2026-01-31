@@ -46,4 +46,14 @@ material_overlay = SubResource("StandardMaterial3D_gxb1y")
 mesh = SubResource("SphereMesh_0dy5s")
 
 [node name="Mask2" parent="." instance=ExtResource("2_gxb1y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.65004, 2.5838084, -1.5557021)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8132615, 2.5524163, -1.8515024)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.094155, 4.1776724, -3.243339)
+use_collision = true
+size = Vector3(0.3848877, 5.055725, 5.1987305)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.393962, 4.729262, -3.1172848)
+use_collision = true
+size = Vector3(0.3848877, 5.055725, 5.1987305)
