@@ -5,6 +5,7 @@ extends CharacterBody3D
 @export var accel:= 18.0
 @export var decel:= 22.0
 @export var jump_velocity:= 4.5
+@export var jump_count := 0
 @export var mask_double_jump:= false
 @export var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var face_socket: Node3D = $Marker3D
@@ -16,10 +17,15 @@ func _physics_process(delta):
 	# Gravity
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-
+	
+	
 	# Mask 1 = Double Jump
-	if mask_double_jump and Input.is_action_just_pressed("jump") and !is_on_floor():
+	if is_on_floor():
+		jump_count = 0
+		
+	if mask_double_jump and Input.is_action_just_pressed("jump") and !is_on_floor() and jump_count < 1:
 		velocity.y = jump_velocity
+		jump_count += 1
 		
 	#Jump
 	if Input.is_action_pressed("jump") and is_on_floor():
