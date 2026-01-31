@@ -31,11 +31,3 @@ size = Vector3(12.135742, 0.3173828, 1)
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("1_jjgbg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22675842, 1.2098178, 0.087062456)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.327269, 0.93896794, 0)
-use_collision = true
-
-[node name="CSGBox3D3" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.603806, 2.1594536, 0)
-use_collision = true
