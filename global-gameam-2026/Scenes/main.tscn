@@ -47,4 +47,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.748533, 0.6783446, 0.00879
 curve = SubResource("Curve3D_bo1nx")
 
 [node name="BreakingPlatform" parent="." instance=ExtResource("3_jjvhh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.851244, 0.9252382, -0.26586914)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.851244, 0.9252382, 0.0056562424)

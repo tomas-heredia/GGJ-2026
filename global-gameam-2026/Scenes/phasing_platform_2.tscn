@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8sm8iv41pj0y"]
+
+[ext_resource type="Script" uid="uid://7wjlmxajlgu3" path="res://phasing_platform_2.gd" id="1_dvhya"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ne8n3"]
+size = Vector3(5, 1, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ujuwg"]
+size = Vector3(5, 1, 2)
+
+[node name="PhasingPlatform2" type="StaticBody3D"]
+script = ExtResource("1_dvhya")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_ne8n3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_ujuwg")
+
+[node name="Timer" type="Timer" parent="."]
