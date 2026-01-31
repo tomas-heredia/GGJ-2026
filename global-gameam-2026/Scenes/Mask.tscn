@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv2p01h1vlr2p"]
+
+[ext_resource type="Script" uid="uid://g174jx2jooxb" path="res://Scripts/mask.gd" id="1_5dvgx"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5gkhb"]
+radius = 1.0
+
+[node name="Mask" type="Node3D"]
+script = ExtResource("1_5dvgx")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_5gkhb")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Area3D"]
+radius = 0.49697313
