@@ -1,6 +1,6 @@
 extends StaticBody3D
 
-var time = 1
+var time = 2
 
 func _ready():
 	set_process(false)
