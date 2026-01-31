@@ -91,7 +91,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.99617, 4.2628593, 0)
 curve = SubResource("Curve3D_uoico")
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_m5hwo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.7058, 2.5321064, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 170.26355, 7.6808033, 0)
 
 [node name="Zone2" type="Node3D" parent="."]
 
@@ -155,8 +155,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.93387, 0.70679104, 0.02801
 worn_mask = 1
 
 [node name="Mask2" parent="Zone2" instance=ExtResource("4_wtlyx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.05617, 2.8403416, 0.02801323)
-worn_mask = 2
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 173.66579, 8.166622, 0.02801323)
+worn_mask = 3
 
 [node name="Zone3" type="Node3D" parent="."]
 
