@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjms54rmqqbo5"]
+
+[ext_resource type="PackedScene" uid="uid://hsir4f72hian" path="res://Scenes/platform.tscn" id="1_lpqu8"]
+[ext_resource type="PackedScene" uid="uid://ca3ycwfhayvqc" path="res://Scenes/breaking_platform.tscn" id="2_f3agv"]
+[ext_resource type="PackedScene" uid="uid://rm3wg8bi4pdg" path="res://Scenes/player.tscn" id="4_mj6ju"]
+
+[node name="BallroomScene" type="Node3D"]
+
+[node name="Platform" parent="." instance=ExtResource("1_lpqu8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Platform2" parent="." instance=ExtResource("1_lpqu8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 3, 0)
+
+[node name="BreakingPlatform" parent="." instance=ExtResource("2_f3agv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2, 0)
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("4_mj6ju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46419525, 2.5, 0.33921814)
