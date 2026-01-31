@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://ca3ycwfhayvqc"]
+
+[ext_resource type="Script" uid="uid://cpjic87id002m" path="res://breaking_platform.gd" id="1_dm8gt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hwwrw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_s6isy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qkejb"]
+
+[node name="BreakingPlatform" type="StaticBody3D"]
+script = ExtResource("1_dm8gt")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 0.3, 0, 0, 0, 10, 0, 0, 0)
+shape = SubResource("BoxShape3D_hwwrw")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 0.3, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("BoxMesh_s6isy")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(10, 0, 0, 0, 0.3, 0, 0, 0, 10, 0, 0.3, 0)
+shape = SubResource("BoxShape3D_qkejb")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
