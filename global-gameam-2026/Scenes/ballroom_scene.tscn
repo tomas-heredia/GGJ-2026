@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjms54rmqqbo5"]
+
+[ext_resource type="PackedScene" uid="uid://hsir4f72hian" path="res://Scenes/platform.tscn" id="1_lpqu8"]
+[ext_resource type="PackedScene" uid="uid://ca3ycwfhayvqc" path="res://Scenes/breaking_platform.tscn" id="2_f3agv"]
+[ext_resource type="PackedScene" uid="uid://5l10oegs5nfa" path="res://Scenes/moving_platform.tscn" id="3_tqb3s"]
+[ext_resource type="PackedScene" uid="uid://rm3wg8bi4pdg" path="res://Scenes/player.tscn" id="4_mj6ju"]
+
+[sub_resource type="Curve3D" id="Curve3D_mr80v"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -15, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[node name="BallroomScene" type="Node3D"]
+
+[node name="Platform" parent="." instance=ExtResource("1_lpqu8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Platform2" parent="." instance=ExtResource("1_lpqu8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 3, 0)
+
+[node name="BreakingPlatform" parent="." instance=ExtResource("2_f3agv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 2, 0)
+
+[node name="MovingPlatform" parent="." instance=ExtResource("3_tqb3s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.536417, 3, 0.053180218)
+curve = SubResource("Curve3D_mr80v")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("4_mj6ju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46419525, 2.5, 0.33921814)
