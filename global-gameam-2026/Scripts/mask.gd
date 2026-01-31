@@ -6,6 +6,7 @@ enum MaskPower {
 	NONE,
 	DOUBLE_JUMP,      # Horizontal boost
 	WALL_BOUNCE,      # Temporary platforms from jumps
+	PHASE,
 }
 
 @export var worn_mask: MaskPower = MaskPower.NONE

@@ -1,5 +1,5 @@
 extends CharacterBody3D
-
+signal Change
 @export var walk_speed := 5.0
 @export var sprint_speed := 9.0
 var current_direction: float = 0.0
@@ -14,6 +14,7 @@ var has_jumped := false
 # Ability flags (driven by the equipped mask)
 @export var mask_double_jump := false
 @export var mask_wall_bounce := false
+@export var mask_phase := false
 @export var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var face_socket: Node3D = $Marker3D
 @onready var mesh: Node3D = $MeshInstance3D
@@ -84,6 +85,10 @@ func _physics_process(delta: float) -> void:
 	velocity.x = current_direction * current_speed
 	velocity.z = 0.0
 	move_and_slide()
+	
+	if Input.is_action_just_pressed("Phase") and mask_phase:
+		
+		emit_signal("Change")
 
 
 # MASK MECHANICS
@@ -97,6 +102,7 @@ func _process(_delta: float) -> void:
 func clear_mask_powers() -> void:
 	mask_double_jump = false
 	mask_wall_bounce = false
+	mask_phase = false
 
 func apply_mask_power(power: int) -> void:
 	clear_mask_powers()
@@ -111,6 +117,8 @@ func apply_mask_power(power: int) -> void:
 			mask_double_jump = true
 		2: # WALL_BOUNCE (using this to enable wall slide/jump mechanics)
 			mask_wall_bounce = true
+		3:
+			mask_phase = true
 		_:
 			pass
 
