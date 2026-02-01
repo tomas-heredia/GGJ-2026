@@ -38,11 +38,11 @@ const ANIM_RUN  := "mixamo_com_002"
 
 var _current_anim: StringName = &""
 
-func _play_anim(name: StringName) -> void:
-	if _current_anim == name:
+func _play_anim(ani_name: StringName) -> void:
+	if _current_anim == ani_name:
 		return
-	_current_anim = name
-	anim.play(name)
+	_current_anim = ani_name
+	anim.play(ani_name)
 
 func _ready() -> void:
 	Global.last_checkpoint_position = global_position
@@ -137,7 +137,7 @@ func _physics_process(delta: float) -> void:
 	var sprinting = Input.is_action_pressed("sprint") and moving
 	if not is_on_floor():
 		# You don't have a jump/fall clip, so pick a fallback:
-		_play_anim(ANIM_IDLE)  # or ANIM_WALK if you prefer
+		_play_anim(ANIM_WALK)  # or ANIM_WALK if you prefer
 	elif not moving:
 		_play_anim(ANIM_IDLE)
 	elif sprinting:
