@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://4u3bk8nn8nwy"]
+[gd_scene load_steps=12 format=3 uid="uid://4u3bk8nn8nwy"]
 
 [ext_resource type="PackedScene" uid="uid://rm3wg8bi4pdg" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://5l10oegs5nfa" path="res://Scenes/moving_platform.tscn" id="2_8gbba"]
@@ -21,6 +21,14 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="Curve3D" id="Curve3D_bo1nx"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.007021427, 0, -0.005703246, 0, 0, 0, 0, 0, 0, 5.9938107, 0, -0.015437176),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_21xkr"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.007021427, 0, -0.005703246, 0, 0, 0, 0, 0, 0, 5.9938107, 0, -0.015437176),
@@ -61,6 +69,9 @@ transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -8.9
 [node name="PhasingPlatformWhite2" parent="PhasingPlatformWhite" instance=ExtResource("4_kry3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8547964, 0)
 
+[node name="PhasingPlatformWhite3" parent="PhasingPlatformWhite" instance=ExtResource("4_kry3j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3841858e-07, 7.7009506, 0)
+
 [node name="PhasingPlatformBlack" parent="." instance=ExtResource("5_21xkr")]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -10.963481, 2.6855965, 0.071938515)
 
@@ -73,7 +84,7 @@ worn_mask = 3
 
 [node name="MovingPlatform2" parent="." instance=ExtResource("2_8gbba")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.681662, 0.6783446, 0.17340565)
-curve = SubResource("Curve3D_bo1nx")
+curve = SubResource("Curve3D_21xkr")
 
 [connection signal="Change" from="CharacterBody3D" to="PhasingPlatformWhite" method="_on_character_body_3d_change"]
 [connection signal="Change" from="CharacterBody3D" to="PhasingPlatformBlack" method="_on_character_body_3d_change"]
