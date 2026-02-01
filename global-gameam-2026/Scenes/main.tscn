@@ -1,8 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://4u3bk8nn8nwy"]
+[gd_scene load_steps=12 format=3 uid="uid://4u3bk8nn8nwy"]
 
 [ext_resource type="PackedScene" uid="uid://rm3wg8bi4pdg" path="res://Scenes/player.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://5l10oegs5nfa" path="res://Scenes/moving_platform.tscn" id="2_8gbba"]
 [ext_resource type="PackedScene" uid="uid://ca3ycwfhayvqc" path="res://Scenes/breaking_platform.tscn" id="3_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://chbvki7tiupk" path="res://Scenes/phasing_platform_white.tscn" id="4_kry3j"]
+[ext_resource type="PackedScene" uid="uid://c8sm8iv41pj0y" path="res://Scenes/phasing_platform_black.tscn" id="5_21xkr"]
+[ext_resource type="PackedScene" uid="uid://cv2p01h1vlr2p" path="res://Scenes/Mask.tscn" id="6_21xkr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -18,6 +21,14 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="Curve3D" id="Curve3D_bo1nx"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.007021427, 0, -0.005703246, 0, 0, 0, 0, 0, 0, 5.9938107, 0, -0.015437176),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_21xkr"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.007021427, 0, -0.005703246, 0, 0, 0, 0, 0, 0, 5.9938107, 0, -0.015437176),
@@ -47,4 +58,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.748533, 0.6783446, 0.00879
 curve = SubResource("Curve3D_bo1nx")
 
 [node name="BreakingPlatform" parent="." instance=ExtResource("3_jjvhh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.851244, 0.9252382, -0.26586914)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.851244, 0.9252382, 0.0056562424)
+
+[node name="BreakingPlatform2" parent="BreakingPlatform" instance=ExtResource("3_jjvhh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.45068, 0.7209719, 0.48364305)
+
+[node name="PhasingPlatformWhite" parent="." instance=ExtResource("4_kry3j")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -8.937393, 2.7151318, 0.025617123)
+
+[node name="PhasingPlatformWhite2" parent="PhasingPlatformWhite" instance=ExtResource("4_kry3j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8547964, 0)
+
+[node name="PhasingPlatformBlack" parent="." instance=ExtResource("5_21xkr")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -10.963481, 2.6855965, 0.071938515)
+
+[node name="PhasingPlatformBlack2" parent="PhasingPlatformBlack" instance=ExtResource("5_21xkr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3841858e-07, 3.8108454, 0)
+
+[node name="Mask" parent="." instance=ExtResource("6_21xkr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.481287, 0.84555066, -0.12948847)
+worn_mask = 3
+
+[node name="MovingPlatform2" parent="." instance=ExtResource("2_8gbba")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.681662, 0.6783446, 0.17340565)
+curve = SubResource("Curve3D_21xkr")
+
+[connection signal="Change" from="CharacterBody3D" to="PhasingPlatformWhite" method="_on_character_body_3d_change"]
+[connection signal="Change" from="CharacterBody3D" to="PhasingPlatformBlack" method="_on_character_body_3d_change"]
