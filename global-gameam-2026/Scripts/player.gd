@@ -1,5 +1,6 @@
 extends CharacterBody3D
 
+
 @export var walk_speed := 3.0
 @export var sprint_speed := 6.0
 var current_direction: float = 0.0
@@ -17,7 +18,9 @@ var has_jumped := false
 @export var mask_phase := false
 @export var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var face_socket: Node3D = $Marker3D
-@onready var mesh: Node3D = $MeshInstance3D
+@onready var mesh: Node3D = $CharacterModel/MeshInstance3D
+@onready var anim: AnimationPlayer = $CharacterModel/AnimationPlayer
+@onready var base_mesh_scale_x: float = abs(mesh.scale.x)
 var current_speed: float = 0.0
 var jumps_used: int = 0
 # Mask equip vars (Mask.gd sets nearby_mask on enter/exit)
@@ -29,8 +32,23 @@ var equipped_mask: Node3D = null
 @onready var running_sfx: AudioStreamPlayer3D = $RunningSfx
 var _sprint_sfx_playing := false
 
+const ANIM_IDLE := "mixamo_com"
+const ANIM_WALK := "mixamo_com_001"
+const ANIM_RUN  := "mixamo_com_002"
+
+var _current_anim: StringName = &""
+
+func _play_anim(ani_name: StringName) -> void:
+	if _current_anim == ani_name:
+		return
+	_current_anim = ani_name
+	anim.play(ani_name)
+
 func _ready() -> void:
 	Global.last_checkpoint_position = global_position
+	print(anim.get_animation_list())
+	_play_anim(ANIM_IDLE)
+	
 
 func _physics_process(delta: float) -> void:
 	# Input (left / right only)
@@ -87,14 +105,19 @@ func _physics_process(delta: float) -> void:
 	else:
 		current_speed = move_toward(current_speed, 0.0, decel * delta)
 	
-	# Face direction of movement
-	if current_direction != 0.0:
-		mesh.scale.x = current_direction
 	
+	#Character Facing Direction
+	if abs(x_input) > 0.001:
+		current_direction = signf(x_input)
+	var target_rot := PI/2 if current_direction > 0.0 else -PI/2
+	$CharacterModel.rotation.y = lerp_angle($CharacterModel.rotation.y, target_rot, 0.2)
+
+
 	# Apply movement
 	velocity.x = current_direction * current_speed
 	velocity.z = 0.0
 	move_and_slide()
+	
 	
 	# --- Sprint SFX loop ---
 	var is_sprinting = Input.is_action_pressed("sprint") and abs(current_speed) > 0.001
@@ -108,7 +131,19 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Phase") and mask_phase:
 		
 		Signals.Change.emit()
-
+	
+	# --- Animaions ---
+	var moving = abs(current_speed) > 0.05
+	var sprinting = Input.is_action_pressed("sprint") and moving
+	if not is_on_floor():
+		# You don't have a jump/fall clip, so pick a fallback:
+		_play_anim(ANIM_WALK)  # or ANIM_WALK if you prefer
+	elif not moving:
+		_play_anim(ANIM_IDLE)
+	elif sprinting:
+		_play_anim(ANIM_RUN)
+	else:
+		_play_anim(ANIM_WALK)
 
 # MASK MECHANICS
 func _process(_delta: float) -> void:

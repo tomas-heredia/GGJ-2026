@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://rm3wg8bi4pdg"]
 
 [ext_resource type="Script" uid="uid://ba3oq6o6k4ylk" path="res://Scripts/player.gd" id="1_4flbx"]
-[ext_resource type="PackedScene" uid="uid://v5spku7l78q8" path="res://Art/character/rat_large.fbx" id="2_cvnsp"]
 [ext_resource type="AudioStream" uid="uid://bgqn1smatytj3" path="res://Art/music-sfx/jump.mp3" id="3_6t5aa"]
 [ext_resource type="AudioStream" uid="uid://b2d4g5bufc2g" path="res://Art/music-sfx/running-14658.mp3" id="4_vgqql"]
 [ext_resource type="AudioStream" uid="uid://ctrw23f178yl6" path="res://Art/music-sfx/mouse-squeak-261126.mp3" id="5_fkybt"]
+[ext_resource type="PackedScene" uid="uid://kwvdmpw0p4qf" path="res://Art/Animations/Untitled.glb" id="5_x3wgy"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6t5aa"]
 radius = 0.5207036
@@ -17,16 +17,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.44651645, 0)
 shape = SubResource("SphereShape3D_6t5aa")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.9982024, 0.05993358, 0, -0.05993358, 0.9982024, 1.4911118, 0.9973773, 3.978195)
+transform = Transform3D(1, 0, 0, 0, 0.9999673, -0.008098245, 0, 0.008098245, 0.9999673, 2.1533778, 1.1365379, 3.8526251)
 current = true
 
 [node name="Marker3D" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1715743, 0.5266397, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-
-[node name="rat_large" parent="MeshInstance3D" instance=ExtResource("2_cvnsp")]
-transform = Transform3D(2.9802322e-08, 0, 1, 0, 1, 0, -1, 0, 2.9802322e-08, 0, 0, 0)
 
 [node name="JumpSfx" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_6t5aa")
@@ -38,3 +33,16 @@ volume_db = 6.275
 
 [node name="InteractionSfx" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_fkybt")
+
+[node name="CharacterModel" parent="." instance=ExtResource("5_x3wgy")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterModel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3208791, 0)
+skeleton = NodePath("../..")
+
+[node name="Skeleton3D" type="Skeleton3D" parent="CharacterModel"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.30371505, 0)
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="CharacterModel"]
+root_node = NodePath("../MeshInstance3D")
