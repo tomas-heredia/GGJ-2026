@@ -1,16 +1,14 @@
 extends StaticBody3D
 
-var time = 1
+var count = 0
 
-func _ready():
-	if $StaticBody3D.name == "PhasingPlatform":
-		pass
+func _on_character_body_3d_change() -> void:
+	count += 1
+	if count % 2 == 1:
+		$CollisionShape3D.hide()
+		$MeshInstance3D.hide()
+		position += Vector3(0, -10000, 0)
 	else:
-		pass
-
-func _on_mesh_instance_3d_visibility_changed() -> void:
-	pass 
-
-
-func _on_timer_timeout() -> void:
-	pass # Replace with function body.
+		$CollisionShape3D.show()
+		$MeshInstance3D.show()
+		position -= Vector3(0, -10000, 0)
