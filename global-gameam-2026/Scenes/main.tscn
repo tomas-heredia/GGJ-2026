@@ -69,6 +69,9 @@ transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -8.9
 [node name="PhasingPlatformWhite2" parent="PhasingPlatformWhite" instance=ExtResource("4_kry3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8547964, 0)
 
+[node name="PhasingPlatformWhite3" parent="PhasingPlatformWhite" instance=ExtResource("4_kry3j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3841858e-07, 7.7009506, 0)
+
 [node name="PhasingPlatformBlack" parent="." instance=ExtResource("5_21xkr")]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -10.963481, 2.6855965, 0.071938515)
 

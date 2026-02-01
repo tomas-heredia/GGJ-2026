@@ -1,6 +1,8 @@
 extends StaticBody3D
 
 var count = 0
+var materialTransparent = preload("res://transparentMaterial.tres")
+var materialWhite = preload("res://whiteMaterial.tres")
 
 func _ready() -> void:
 	Signals.connect("Change",_on_character_body_3d_change)
@@ -8,10 +10,8 @@ func _ready() -> void:
 func _on_character_body_3d_change() -> void:
 	count += 1
 	if count % 2 == 1:
-		$CollisionShape3D.hide()
-		$MeshInstance3D.hide()
-		position += Vector3(0, -10000, 0)
+		$CollisionShape3D.disabled = true
+		$MeshInstance3D.set_surface_override_material(0, materialTransparent)
 	else:
-		$CollisionShape3D.show()
-		$MeshInstance3D.show()
-		position -= Vector3(0, -10000, 0)
+		$CollisionShape3D.disabled = false
+		$MeshInstance3D.set_surface_override_material(0, materialWhite)
