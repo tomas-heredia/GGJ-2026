@@ -16,6 +16,7 @@ var has_jumped := false
 @export var mask_double_jump := false
 @export var mask_wall_bounce := false
 @export var mask_phase := false
+@export var mask_final := false
 @export var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var face_socket: Node3D = $CharacterModel/Marker3D
 @onready var mesh: Node3D = $CharacterModel/MeshInstance3D
@@ -27,6 +28,8 @@ var jumps_used: int = 0
 var nearby_mask: Node3D = null
 var equipped_mask: Node3D = null
 
+@onready var finall_collision: CollisionShape3D = $finall_collision
+@onready var collision_shape_3d: CollisionShape3D = $CollisionShape3D
 @onready var jump_sfx: AudioStreamPlayer3D = $JumpSfx
 @onready var interaction_sfx: AudioStreamPlayer3D = $InteractionSfx
 @onready var running_sfx: AudioStreamPlayer3D = $RunningSfx
@@ -158,6 +161,7 @@ func clear_mask_powers() -> void:
 	mask_double_jump = false
 	mask_wall_bounce = false
 	mask_phase = false
+	mask_final = false
 
 func apply_mask_power(power: int) -> void:
 	clear_mask_powers()
@@ -174,12 +178,15 @@ func apply_mask_power(power: int) -> void:
 			mask_wall_bounce = true
 		3:
 			mask_phase = true
+		4:
+			mask_final = true
 		_:
 			pass
 
 
 func equip_mask(mask: Node3D) -> void:
 	# If only one mask allowed, drop/replace old
+	mask.stop_anim()
 	if equipped_mask:
 		equipped_mask.queue_free()
 		equipped_mask = null
@@ -190,7 +197,6 @@ func equip_mask(mask: Node3D) -> void:
 
 	# Snap to the socket
 	mask.transform = Transform3D.IDENTITY
-	mask.stop_anim()
 	# Disable pickup collider so it doesn’t keep triggering
 	var pickup_area := mask.get_node_or_null("Area3D") as Area3D
 	if pickup_area:
@@ -204,4 +210,8 @@ func equip_mask(mask: Node3D) -> void:
 		apply_mask_power(mask.worn_mask)
 	else:
 		clear_mask_powers()
-		
+	
+	if mask_final:
+		walk_speed = 1
+		sprint_speed = 1
+		finall_collision.disabled = false
