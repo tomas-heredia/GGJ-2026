@@ -1,12 +1,12 @@
-[gd_scene load_steps=21 format=3 uid="uid://dyf3qejo4n8wq"]
+[gd_scene load_steps=24 format=3 uid="uid://dyf3qejo4n8wq"]
 
 [ext_resource type="Material" uid="uid://cb4rugu71q80x" path="res://Art/Materials/floor_tex.tres" id="1_akeww"]
 [ext_resource type="PackedScene" uid="uid://c10wntvijx6to" path="res://Scenes/Objects/table.tscn" id="1_k541i"]
 [ext_resource type="Texture2D" uid="uid://bb0vppnki1xpa" path="res://Art/Materials/floor_tex.png" id="2_fvaf1"]
 [ext_resource type="PackedScene" uid="uid://rm3wg8bi4pdg" path="res://Scenes/player.tscn" id="2_m5hwo"]
 [ext_resource type="PackedScene" uid="uid://bi4vkebgn5dh4" path="res://Scenes/checkpoint.tscn" id="2_q2tg5"]
-[ext_resource type="PackedScene" uid="uid://ca3ycwfhayvqc" uid="uid://ca3ycwfhayvqc" path="res://Scenes/breaking_platform.tscn" id="2_wtlyx"]
-[ext_resource type="PackedScene" uid="uid://5l10oegs5nfa" uid="uid://5l10oegs5nfa" path="res://Scenes/moving_platform.tscn" id="4_knogg"]
+[ext_resource type="PackedScene" uid="uid://ca3ycwfhayvqc" path="res://Scenes/breaking_platform.tscn" id="2_wtlyx"]
+[ext_resource type="PackedScene" uid="uid://5l10oegs5nfa" path="res://Scenes/moving_platform.tscn" id="4_knogg"]
 [ext_resource type="PackedScene" uid="uid://cv2p01h1vlr2p" path="res://Scenes/Mask.tscn" id="4_wtlyx"]
 [ext_resource type="PackedScene" uid="uid://dihxhs0qa8n7o" path="res://Scenes/deathzone.tscn" id="5_d68a7"]
 [ext_resource type="Texture2D" uid="uid://c45dpfvyl4u85" path="res://Art/UI/red_arrow.png" id="6_uoico"]
@@ -14,6 +14,9 @@
 [ext_resource type="PackedScene" uid="uid://chbvki7tiupk" path="res://Scenes/phasing_platform_white.tscn" id="8_pvlc2"]
 [ext_resource type="Texture2D" uid="uid://qbrc3k16svqi" path="res://Art/BackGround/ALL_wallbackground.png" id="9_pvlc2"]
 [ext_resource type="Texture2D" uid="uid://b88ybicshn28c" path="res://Art/BackGround/SKY_03.png" id="12_mt3j2"]
+[ext_resource type="Texture2D" uid="uid://ca1r57qyvdrbd" path="res://Art/BackGround/background_rats/crowdrats_bg.png" id="15_hnohd"]
+[ext_resource type="Texture2D" uid="uid://dktfcvth5mgnm" path="res://Art/BackGround/background_rats/crowdrats_mg.png" id="16_50v45"]
+[ext_resource type="Texture2D" uid="uid://bjaw3p5v8y2o4" path="res://Art/BackGround/background_rats/crowdrats_mg_02.PNG" id="17_lrh7k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5dsmb"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -540,48 +543,48 @@ texture = ExtResource("9_pvlc2")
 transform = Transform3D(1.4999998, 0, 0, 0, 1.4999998, 0, 0, 0, 1.4999998, 371.69073, 10.793347, -2.220823)
 texture = ExtResource("9_pvlc2")
 
-[node name="Sky" type="Sprite3D" parent="BackGround"]
-transform = Transform3D(4.9999986, 0, 0, 0, 4.9999986, 0, 0, 0, 4.9999986, 137.25081, 27.101, -32.879)
+[node name="Sky" type="Sprite3D" parent="."]
+transform = Transform3D(1.4999996, 0, 0, 0, 1.4999996, 0, 0, 0, 1.4999996, 41.175243, 8.1303005, -9.863701)
 texture = ExtResource("12_mt3j2")
 
-[node name="Sky2" type="Sprite3D" parent="BackGround"]
-transform = Transform3D(4.9999995, 0, 0, 0, 4.9999995, 0, 0, 0, 4.9999995, 4.224357, 27.101086, -32.879135)
+[node name="Sky2" type="Sprite3D" parent="Sky"]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, -26.605297, 1.7166138e-05, -2.670288e-05)
 texture = ExtResource("12_mt3j2")
 
-[node name="Sky3" type="Sprite3D" parent="BackGround"]
-transform = Transform3D(4.999999, 0, 0, 0, 4.999999, 0, 0, 0, 4.999999, 270.2487, 27.101, -32.879)
+[node name="Sky3" type="Sprite3D" parent="Sky"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.599583, 0, 0)
 texture = ExtResource("12_mt3j2")
 
-[node name="Sky4" type="Sprite3D" parent="BackGround"]
-transform = Transform3D(4.9999995, 0, 0, 0, 4.9999995, 0, 0, 0, 4.9999995, 403.3802, 27.101, -32.879)
+[node name="Sky4" type="Sprite3D" parent="Sky"]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 53.225887, 0, 0)
 texture = ExtResource("12_mt3j2")
 
-[node name="Sky5" type="Sprite3D" parent="BackGround"]
-transform = Transform3D(4.999999, 0, 0, 0, 4.999999, 0, 0, 0, 4.999999, 534.84784, 27.101, -32.879)
+[node name="Sky5" type="Sprite3D" parent="Sky"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 79.519424, 0, 0)
 texture = ExtResource("12_mt3j2")
 
-[node name="Sky6" type="Sprite3D" parent="BackGround"]
-transform = Transform3D(4.999999, 0, 0, 0, 4.999999, 0, 0, 0, 4.999999, 665.0791, 27.101, -32.879)
+[node name="Sky6" type="Sprite3D" parent="Sky"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 105.56569, 0, 0)
 texture = ExtResource("12_mt3j2")
 
-[node name="Sky7" type="Sprite3D" parent="BackGround"]
-transform = Transform3D(4.999999, 0, 0, 0, 4.999999, 0, 0, 0, 4.999999, 796.6676, 27.101, -32.879)
+[node name="Sky7" type="Sprite3D" parent="Sky"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 131.88339, 0, 0)
 texture = ExtResource("12_mt3j2")
 
-[node name="Sky8" type="Sprite3D" parent="BackGround"]
-transform = Transform3D(4.999999, 0, 0, 0, 4.999999, 0, 0, 0, 4.999999, 927.467, 27.101, -32.879)
+[node name="Sky8" type="Sprite3D" parent="Sky"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 158.04329, 0, 0)
 texture = ExtResource("12_mt3j2")
 
-[node name="Sky9" type="Sprite3D" parent="BackGround"]
-transform = Transform3D(4.9999986, 0, 0, 0, 4.9999986, 0, 0, 0, 4.9999986, 926.9842, 101.236595, -32.879)
+[node name="Sky9" type="Sprite3D" parent="Sky"]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 157.94673, 14.827123, 0)
 texture = ExtResource("12_mt3j2")
 
-[node name="Sky10" type="Sprite3D" parent="BackGround"]
-transform = Transform3D(4.999999, 0, 0, 0, 4.999999, 0, 0, 0, 4.999999, 794.0161, 101.23699, -32.879)
+[node name="Sky10" type="Sprite3D" parent="Sky"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 131.3531, 14.827203, 0)
 texture = ExtResource("12_mt3j2")
 
-[node name="Sky11" type="Sprite3D" parent="BackGround"]
-transform = Transform3D(4.999999, 0, 0, 0, 4.999999, 0, 0, 0, 4.999999, 661.0956, 101.23699, -32.879)
+[node name="Sky11" type="Sprite3D" parent="Sky"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.76898, 14.827203, 0)
 texture = ExtResource("12_mt3j2")
 
 [node name="BackGround3" type="Node3D" parent="."]
@@ -792,9 +795,48 @@ texture = ExtResource("9_pvlc2")
 transform = Transform3D(1.4999999, 0, 0, 0, 1.4999999, 0, 0, 0, 1.4999999, 331.81595, 10.793347, -2.220823)
 texture = ExtResource("9_pvlc2")
 
-[node name="Sprite3D11" type="Sprite3D" parent="BackGround2"]
-transform = Transform3D(1.4999998, 0, 0, 0, 1.4999998, 0, 0, 0, 1.4999998, 371.69073, 10.793347, -2.220823)
+[node name="rats2" type="Sprite3D" parent="."]
+transform = Transform3D(0.44999984, 0, 0, 0, 0.44999984, 0, 0, 0, 0.44999984, 7.6570587, 3.344688, -0.018428445)
+texture = ExtResource("16_50v45")
+
+[node name="Sprite3D3" type="Sprite3D" parent="rats2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.211983, 0, 0.84681606)
+texture = ExtResource("17_lrh7k")
+
+[node name="Sprite3D4" type="Sprite3D" parent="rats2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 120.78687, 0.28902102, 2.484289)
+flip_h = true
+texture = ExtResource("17_lrh7k")
+
+[node name="Sprite3D5" type="Sprite3D" parent="rats2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 236.9517, 11.376501, 2.484289)
+flip_h = true
+texture = ExtResource("17_lrh7k")
+
+[node name="Sprite3D6" type="Sprite3D" parent="rats2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 327.46652, 22.896149, 2.484289)
+flip_h = true
+texture = ExtResource("17_lrh7k")
+
+[node name="rats" type="Sprite3D" parent="."]
+transform = Transform3D(0.44999996, 0, 0, 0, 0.44999996, 0, 0, 0, 0.44999996, 111.507225, 9.912581, -0.66624695)
 texture = ExtResource("9_pvlc2")
+
+[node name="Sprite3D" type="Sprite3D" parent="rats"]
+transform = Transform3D(0.9999997, 0, 0, 0, 0.9999997, 0, 0, 0, 0.9999997, -233.25319, -14.595321, 1.4395968)
+texture = ExtResource("15_hnohd")
+
+[node name="Sprite3D2" type="Sprite3D" parent="rats/Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.105068, 0, 1.5836002)
+texture = ExtResource("15_hnohd")
+
+[node name="Sprite3D3" type="Sprite3D" parent="rats/Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 115.10515, 0, -0.78733885)
+texture = ExtResource("15_hnohd")
+
+[node name="Sprite3D4" type="Sprite3D" parent="rats/Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 318.74512, 22.75014, 1.4323782)
+texture = ExtResource("15_hnohd")
 
 [editable path="zone1/deathzone"]
 [editable path="zone1/deathzone2"]
