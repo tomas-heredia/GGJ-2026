@@ -1,15 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://dihxhs0qa8n7o"]
 
-[ext_resource type="Script" uid="uid://ct3eqlencbs10" path="res://Scripts/deathzone.gd" id="1_s8m76"]
+[ext_resource type="Script" uid="uid://noi3p8u6hi8" path="res://Scripts/deathzone.gd" id="1_s8m76"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ehioi"]
+size = Vector3(4.7802734, 1, 6.5039063)
 
-[node name="Deathzone" type="Node3D"]
+[node name="deathzone" type="Area3D" groups=["player"]]
 script = ExtResource("1_s8m76")
 
-[node name="Area3D" type="Area3D" parent="." groups=["player"]]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["SpawnPoint", "player"]]
 shape = SubResource("BoxShape3D_ehioi")
 
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

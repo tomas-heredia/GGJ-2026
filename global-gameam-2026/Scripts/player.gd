@@ -54,7 +54,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y = jump_velocity
 			jumps_used += 1
 
-	# Right Wall Jump (only when wall-slide power is enabled)
+	# Wall Jump (only when wall-slide power is enabled)
 	if mask_wall_bounce and is_on_wall() and Input.is_action_just_pressed("jump") and wall_jump_true:
 		velocity.y = jump_velocity
 		# Push away from wall using the wall normal
