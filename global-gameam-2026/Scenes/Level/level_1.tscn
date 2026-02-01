@@ -42,20 +42,6 @@ point_count = 2
 
 [node name="Level_1" type="Node3D"]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -10
-visible = false
-
-[node name="Parallax2D" type="Parallax2D" parent="CanvasLayer"]
-z_index = -4096
-repeat_size = Vector2(1152, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Parallax2D"]
-z_index = -1000
-position = Vector2(577.5, 325.5)
-scale = Vector2(0.43082112, 0.43133333)
-texture = ExtResource("9_pvlc2")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_b828a")
 
@@ -145,7 +131,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.612291, 0.70620704, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.61229, 0.70620704, 0)
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_m5hwo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5260925, 2.4107685, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 225.40944, 14.924246, 0)
 
 [node name="Zone2" type="Node3D" parent="."]
 
@@ -463,6 +449,44 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 209.71892, 9.790773, 0)
 
 [node name="checkpoint4" parent="Zone4" instance=ExtResource("2_q2tg5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 238.35922, 12.963754, 0)
+
+[node name="BackGround" type="Node3D" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="BackGround"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -28.139862, 10.793347, -2.2208233)
+texture = ExtResource("9_pvlc2")
+
+[node name="Sprite3D2" type="Sprite3D" parent="BackGround"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 11.860138, 10.793347, -2.2208233)
+texture = ExtResource("9_pvlc2")
+
+[node name="Sprite3D3" type="Sprite3D" parent="BackGround"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 51.860138, 10.793347, -2.2208233)
+texture = ExtResource("9_pvlc2")
+
+[node name="Sprite3D4" type="Sprite3D" parent="BackGround"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 91.86014, 10.793347, -2.2208233)
+texture = ExtResource("9_pvlc2")
+
+[node name="Sprite3D5" type="Sprite3D" parent="BackGround"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 131.86014, 10.793347, -2.2208233)
+texture = ExtResource("9_pvlc2")
+
+[node name="Sprite3D6" type="Sprite3D" parent="BackGround"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 171.86014, 10.793347, -2.2208233)
+texture = ExtResource("9_pvlc2")
+
+[node name="Sprite3D7" type="Sprite3D" parent="BackGround"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 211.86014, 10.793347, -2.2208233)
+texture = ExtResource("9_pvlc2")
+
+[node name="Sprite3D8" type="Sprite3D" parent="BackGround"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 251.86014, 10.793347, -2.2208233)
+texture = ExtResource("9_pvlc2")
+
+[node name="Sprite3D9" type="Sprite3D" parent="BackGround"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 291.86014, 10.793347, -2.2208233)
+texture = ExtResource("9_pvlc2")
 
 [editable path="zone1/deathzone2"]
 [editable path="Zone2/deathzone"]
