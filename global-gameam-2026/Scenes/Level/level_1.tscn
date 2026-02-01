@@ -8,9 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://cv2p01h1vlr2p" path="res://Scenes/Mask.tscn" id="4_wtlyx"]
 [ext_resource type="PackedScene" uid="uid://dihxhs0qa8n7o" path="res://Scenes/deathzone.tscn" id="5_d68a7"]
 [ext_resource type="Texture2D" uid="uid://c45dpfvyl4u85" path="res://Art/UI/red_arrow.png" id="6_uoico"]
-[ext_resource type="PackedScene" uid="uid://c8sm8iv41pj0y" path="res://Scenes/phasing_platform_black.tscn" id="7_c458c"]
-[ext_resource type="PackedScene" uid="uid://chbvki7tiupk" path="res://Scenes/phasing_platform_white.tscn" id="8_pvlc2"]
-[ext_resource type="Texture2D" uid="uid://qbrc3k16svqi" path="res://Art/BackGround/ALL_wallbackground.png" id="9_pvlc2"]
+[ext_resource type="PackedScene" path="res://Scenes/phasing_platform_black.tscn" id="7_c458c"]
+[ext_resource type="PackedScene" path="res://Scenes/phasing_platform_white.tscn" id="8_pvlc2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5dsmb"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)

@@ -24,6 +24,11 @@ var jumps_used: int = 0
 var nearby_mask: Node3D = null
 var equipped_mask: Node3D = null
 
+@onready var jump_sfx: AudioStreamPlayer3D = $JumpSfx
+@onready var interaction_sfx: AudioStreamPlayer3D = $InteractionSfx
+@onready var running_sfx: AudioStreamPlayer3D = $RunningSfx
+var _sprint_sfx_playing := false
+
 func _ready() -> void:
 	Global.last_checkpoint_position = global_position
 
@@ -56,6 +61,7 @@ func _physics_process(delta: float) -> void:
 		if jumps_used < max_jumps:
 			velocity.y = jump_velocity
 			jumps_used += 1
+			jump_sfx.play()
 
 	# Wall Jump (only when wall-slide power is enabled)
 	if mask_wall_bounce and is_on_wall() and Input.is_action_pressed("jump") and wall_jump_true:
@@ -63,6 +69,7 @@ func _physics_process(delta: float) -> void:
 		# Push away from wall using the wall normal
 		velocity.x = get_wall_normal().x * wall_jump_pushback
 		wall_jump_true = false
+		jump_sfx.play()
 	
 	if not is_on_wall():
 		wall_jump_true = true
@@ -88,6 +95,15 @@ func _physics_process(delta: float) -> void:
 	velocity.z = 0.0
 	move_and_slide()
 	
+	# --- Sprint SFX loop ---
+	var is_sprinting = Input.is_action_pressed("sprint") and abs(current_speed) > 0.001
+	if is_sprinting and not _sprint_sfx_playing:
+		running_sfx.play()
+		_sprint_sfx_playing = true
+	elif not is_sprinting and _sprint_sfx_playing or not is_on_floor():
+		running_sfx.stop()
+		_sprint_sfx_playing = false
+	
 	if Input.is_action_just_pressed("Phase") and mask_phase:
 		
 		Signals.Change.emit()
@@ -97,6 +113,7 @@ func _physics_process(delta: float) -> void:
 func _process(_delta: float) -> void:
 	if nearby_mask and Input.is_action_just_pressed("interact"):
 		equip_mask(nearby_mask)
+		interaction_sfx.play()
 
 
 # --- Mask power handling ---
