@@ -2,14 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://c10wntvijx6to" path="res://Scenes/Objects/table.tscn" id="1_k541i"]
 [ext_resource type="PackedScene" uid="uid://rm3wg8bi4pdg" path="res://Scenes/player.tscn" id="2_m5hwo"]
-[ext_resource type="PackedScene" path="res://Scenes/checkpoint.tscn" id="2_q2tg5"]
-[ext_resource type="PackedScene" path="res://Scenes/breaking_platform.tscn" id="2_wtlyx"]
-[ext_resource type="PackedScene" path="res://Scenes/moving_platform.tscn" id="4_knogg"]
+[ext_resource type="PackedScene" uid="uid://bi4vkebgn5dh4" path="res://Scenes/checkpoint.tscn" id="2_q2tg5"]
+[ext_resource type="PackedScene" uid="uid://ca3ycwfhayvqc" path="res://Scenes/breaking_platform.tscn" id="2_wtlyx"]
+[ext_resource type="PackedScene" uid="uid://5l10oegs5nfa" path="res://Scenes/moving_platform.tscn" id="4_knogg"]
 [ext_resource type="PackedScene" uid="uid://cv2p01h1vlr2p" path="res://Scenes/Mask.tscn" id="4_wtlyx"]
-[ext_resource type="PackedScene" path="res://Scenes/deathzone.tscn" id="5_d68a7"]
+[ext_resource type="PackedScene" uid="uid://cih4okwlpkjt" path="res://Scenes/deathzone.tscn" id="5_d68a7"]
 [ext_resource type="Texture2D" uid="uid://c45dpfvyl4u85" path="res://Art/UI/red_arrow.png" id="6_uoico"]
-[ext_resource type="PackedScene" path="res://Scenes/phasing_platform_black.tscn" id="7_c458c"]
-[ext_resource type="PackedScene" path="res://Scenes/phasing_platform_white.tscn" id="8_pvlc2"]
+[ext_resource type="PackedScene" uid="uid://c8sm8iv41pj0y" path="res://Scenes/phasing_platform_black.tscn" id="7_c458c"]
+[ext_resource type="PackedScene" uid="uid://chbvki7tiupk" path="res://Scenes/phasing_platform_white.tscn" id="8_pvlc2"]
 [ext_resource type="Texture2D" uid="uid://qbrc3k16svqi" path="res://Art/BackGround/ALL_wallbackground.png" id="9_pvlc2"]
 [ext_resource type="Texture2D" uid="uid://b88ybicshn28c" path="res://Art/BackGround/SKY_03.png" id="12_mt3j2"]
 
@@ -120,11 +120,14 @@ text = "D"
 [node name="deathzone" parent="zone1" instance=ExtResource("5_d68a7")]
 transform = Transform3D(6.9169025, 0, 0, 0, 1, 0, 0, 0, 1, 36.55528, -2.284706, 0)
 
+[node name="CollisionShape3D" parent="zone1/deathzone" index="0"]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, -1.3198946, 0, 0)
+
 [node name="deathzone2" parent="zone1" instance=ExtResource("5_d68a7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.3522835, -1.61053, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.257603, -1.61053, 0)
 
 [node name="CollisionShape3D" parent="zone1/deathzone2" index="0"]
-transform = Transform3D(11.9631195, 0, 0, 0, 1.036036, 0, 0, 0, 1, 86.70448, 0.13449109, 0)
+transform = Transform3D(29.452517, 0, 0, 0, 1.036036, 0, 0, 0, 1, 7.1136436, 0.13449109, 0)
 
 [node name="checkpoint" parent="zone1" instance=ExtResource("2_q2tg5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.612291, 0.70620704, 0)
@@ -133,7 +136,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.612291, 0.70620704, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.61229, 0.70620704, 0)
 
 [node name="deathzone3" parent="zone1" instance=ExtResource("5_d68a7")]
-transform = Transform3D(3.644397, 0, 0, 0, 1, 0, 0, 0, 1.3816353, -13.193426, -2.3480308, 0)
+transform = Transform3D(3.644397, 0, 0, 0, 1, 0, 0, 0, 1.3816353, 83.094215, -2.3480308, 0)
+
+[node name="CollisionShape3D" parent="zone1/deathzone3" index="0"]
+transform = Transform3D(18.714804, 0, 0, 0, 1, 0, 0, 0, 1, 3.9670296, 0, 0)
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_m5hwo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46939468, 1.7074566, 0)
@@ -215,13 +221,13 @@ texture = ExtResource("6_uoico")
 transform = Transform3D(6.9169025, 0, 0, 0, 1, 0, 0, 0, 1, 137.98474, 0.26309395, 0)
 
 [node name="CollisionShape3D" parent="Zone2/deathzone" index="0"]
-transform = Transform3D(0.5338, 0, 0, 0, 0.9999988, 0, 0, 0, 0.9999988, 0, 0, 0)
+transform = Transform3D(3.0836492, 0, 0, 0, 0.99999875, 0, 0, 0, 0.99999875, 0, 0, 0)
 
 [node name="deathzone2" parent="Zone2" instance=ExtResource("5_d68a7")]
 transform = Transform3D(6.9169025, 0, 0, 0, 1, 0, 0, 0, 1, 163.15701, 1.8427303, 0)
 
 [node name="CollisionShape3D" parent="Zone2/deathzone2" index="0"]
-transform = Transform3D(0.5338, 0, 0, 0, 0.9999988, 0, 0, 0, 0.9999988, 0, 0, 0)
+transform = Transform3D(4.3980894, 0, 0, 0, 0.99999875, 0, 0, 0, 0.99999875, 0, 0, 0)
 
 [node name="checkpoint" parent="Zone2" instance=ExtResource("2_q2tg5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 63.74823, 0.6722801, 0)
@@ -441,13 +447,13 @@ transform = Transform3D(0.49167728, 0, 0, 0, 0.64609575, 0, 0, 0, 0.44324768, 23
 transform = Transform3D(8.648953, 0, 0, 0, 1, 0, 0, 0, 1, 195.4391, 3.9929805, 0)
 
 [node name="CollisionShape3D" parent="Zone4/deathzone" index="0"]
-transform = Transform3D(0.7293523, 0, 0, 0, 0.9999988, 0, 0, 0, 0.9999988, 0, 0, 0)
+transform = Transform3D(3.6664622, 0, 0, 0, 0.9999988, 0, 0, 0, 0.9999988, 0, 0, 0)
 
 [node name="deathzone2" parent="Zone4" instance=ExtResource("5_d68a7")]
 transform = Transform3D(8.648953, 0, 0, 0, 1, 0, 0, 0, 1, 227.31267, 8.265396, 0)
 
 [node name="CollisionShape3D" parent="Zone4/deathzone2" index="0"]
-transform = Transform3D(0.7293523, 0, 0, 0, 0.9999988, 0, 0, 0, 0.9999988, 0, 0, 0)
+transform = Transform3D(2.8496425, 0, 0, 0, 0.9999988, 0, 0, 0, 0.9999988, 0, 0, 0)
 
 [node name="checkpoint" parent="Zone4" instance=ExtResource("2_q2tg5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 169.38867, 8.287784, 0)
@@ -539,7 +545,9 @@ texture = ExtResource("12_mt3j2")
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 329.86734, 10.92085, -32.879135)
 texture = ExtResource("12_mt3j2")
 
+[editable path="zone1/deathzone"]
 [editable path="zone1/deathzone2"]
+[editable path="zone1/deathzone3"]
 [editable path="Zone2/deathzone"]
 [editable path="Zone2/deathzone2"]
 [editable path="Zone4/deathzone"]
