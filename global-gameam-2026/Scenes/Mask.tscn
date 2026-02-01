@@ -106,7 +106,7 @@ script = ExtResource("1_5dvgx")
 shape = SubResource("SphereShape3D_5gkhb")
 
 [node name="mask" parent="Area3D" instance=ExtResource("2_m4r5g")]
-transform = Transform3D(0.0016107709, 0.18607138, 0.98253477, 0.008505456, 0.9824978, -0.18607838, -0.9999624, 0.008656636, -4.294796e-08, 0.04032126, -0.21054903, -1.1920929e-07)
+transform = Transform3D(0.0016107708, 0.18607137, 0.98253477, 0.008505455, 0.9824977, -0.18607838, -0.9999623, 0.008656635, -4.294796e-08, 0.04032126, -0.21054903, -1.1920929e-07)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
