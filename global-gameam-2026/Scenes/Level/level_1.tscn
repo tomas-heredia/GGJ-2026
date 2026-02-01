@@ -132,7 +132,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.612291, 0.70620704, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.61229, 0.70620704, 0)
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_m5hwo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 225.40944, 14.924246, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46939468, 1.7074566, 0)
 
 [node name="Zone2" type="Node3D" parent="."]
 
