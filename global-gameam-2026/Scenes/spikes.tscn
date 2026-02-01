@@ -1,71 +1,108 @@
-[gd_scene load_steps=3 format=3 uid="uid://dq1l1wyb8iiqp"]
+[gd_scene load_steps=5 format=3 uid="uid://dq1l1wyb8iiqp"]
+
+[ext_resource type="PackedScene" uid="uid://cih4okwlpkjt" path="res://Scenes/deathzone.tscn" id="1_a5dqs"]
+
+[sub_resource type="GDScript" id="GDScript_m37uh"]
+script/source = "extends StaticBody3D
+"
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m37uh"]
-size = Vector3(6, 1, 2)
+size = Vector3(1.026, 0.25, 1.0504287)
 
 [sub_resource type="PrismMesh" id="PrismMesh_a5dqs"]
-size = Vector3(0.25, 0.25, 0.5)
+size = Vector3(0.125, 0.25, 0.15)
 
 [node name="Spikes" type="StaticBody3D"]
+script = SubResource("GDScript_m37uh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5130226, 0.12516022, -0.5249401)
 shape = SubResource("BoxShape3D_m37uh")
+disabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7500377, 0.125, -0.7500378)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06319791, 0.125, -0.075)
 mesh = SubResource("PrismMesh_a5dqs")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0001516, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0)
 mesh = SubResource("PrismMesh_a5dqs")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0001516, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0, 0)
 mesh = SubResource("PrismMesh_a5dqs")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5000763, 0, 0)
-mesh = SubResource("PrismMesh_a5dqs")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.499773, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0)
 mesh = SubResource("PrismMesh_a5dqs")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5000758, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.3)
 mesh = SubResource("PrismMesh_a5dqs")
 skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="MeshInstance3D/MeshInstance3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0)
+mesh = SubResource("PrismMesh_a5dqs")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="MeshInstance3D/MeshInstance3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0)
+mesh = SubResource("PrismMesh_a5dqs")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="MeshInstance3D/MeshInstance3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0, 0)
+mesh = SubResource("PrismMesh_a5dqs")
+skeleton = NodePath("../../..")
 
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5000758)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.6)
 mesh = SubResource("PrismMesh_a5dqs")
 skeleton = NodePath("../..")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="MeshInstance3D/MeshInstance3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0)
+mesh = SubResource("PrismMesh_a5dqs")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="MeshInstance3D/MeshInstance3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0)
+mesh = SubResource("PrismMesh_a5dqs")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="MeshInstance3D/MeshInstance3D7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0, 0)
+mesh = SubResource("PrismMesh_a5dqs")
+skeleton = NodePath("../../..")
 
 [node name="MeshInstance3D8" type="MeshInstance3D" parent="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5000763, 0, 0.5000758)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.9)
 mesh = SubResource("PrismMesh_a5dqs")
 skeleton = NodePath("../..")
 
-[node name="MeshInstance3D9" type="MeshInstance3D" parent="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0001516, 0, 0.5000758)
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="MeshInstance3D/MeshInstance3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0, 0)
 mesh = SubResource("PrismMesh_a5dqs")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D10" type="MeshInstance3D" parent="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5000758, 0, 0.5000758)
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="MeshInstance3D/MeshInstance3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0)
 mesh = SubResource("PrismMesh_a5dqs")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D11" type="MeshInstance3D" parent="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0001516, 0, 0.5000758)
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="MeshInstance3D/MeshInstance3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0, 0)
 mesh = SubResource("PrismMesh_a5dqs")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D12" type="MeshInstance3D" parent="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5000753, 0, 0.5000758)
-mesh = SubResource("PrismMesh_a5dqs")
-skeleton = NodePath("../..")
+[node name="deathzone" parent="." instance=ExtResource("1_a5dqs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.476002, 0, -0.2971261)
+
+[node name="CollisionShape3D" parent="deathzone" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96313477, 0.12465286, -0.2275238)
+
+[editable path="deathzone"]

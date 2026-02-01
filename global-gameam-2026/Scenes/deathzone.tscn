@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dihxhs0qa8n7o"]
+[gd_scene load_steps=3 format=3 uid="uid://cih4okwlpkjt"]
 
 [ext_resource type="Script" uid="uid://noi3p8u6hi8" path="res://Scripts/deathzone.gd" id="1_s8m76"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ehioi"]
-size = Vector3(4.7802734, 1, 6.5039063)
+size = Vector3(1.0258789, 0.24982452, 1.0498352)
 
 [node name="deathzone" type="Area3D" groups=["player"]]
 script = ExtResource("1_s8m76")
