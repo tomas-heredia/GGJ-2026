@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://dyf3qejo4n8wq"]
+[gd_scene load_steps=12 format=3 uid="uid://dyf3qejo4n8wq"]
 
 [ext_resource type="PackedScene" uid="uid://c10wntvijx6to" path="res://Scenes/Objects/table.tscn" id="1_k541i"]
 [ext_resource type="PackedScene" uid="uid://rm3wg8bi4pdg" path="res://Scenes/player.tscn" id="2_m5hwo"]
 [ext_resource type="PackedScene" uid="uid://ca3ycwfhayvqc" path="res://Scenes/breaking_platform.tscn" id="2_wtlyx"]
 [ext_resource type="PackedScene" uid="uid://5l10oegs5nfa" path="res://Scenes/moving_platform.tscn" id="4_knogg"]
 [ext_resource type="PackedScene" uid="uid://cv2p01h1vlr2p" path="res://Scenes/Mask.tscn" id="4_wtlyx"]
+[ext_resource type="Texture2D" uid="uid://c45dpfvyl4u85" path="res://Art/UI/red_arrow.png" id="6_uoico"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5dsmb"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -90,8 +91,28 @@ transform = Transform3D(0.49167728, 0, 0, 0, 0.64609575, 0, 0, 0, 0.44324768, 48
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.99617, 4.2628593, 0)
 curve = SubResource("Curve3D_uoico")
 
+[node name="Label3D" type="Label3D" parent="zone1"]
+transform = Transform3D(1.6457977, 0, 0, 0, 1.5961199, 0, 0, 0, 1, 4.048229, 2.5751271, 0)
+text = "Space"
+
+[node name="Label3D2" type="Label3D" parent="zone1"]
+transform = Transform3D(1.6457977, 0, 0, 0, 1.5961199, 0, 0, 0, 1, -3.255859, 2.6242578, 0)
+text = "W"
+
+[node name="Label3D3" type="Label3D" parent="zone1"]
+transform = Transform3D(1.6457977, 0, 0, 0, 1.5961199, 0, 0, 0, 1, -3.7471647, 2.1657052, 0)
+text = "A"
+
+[node name="Label3D4" type="Label3D" parent="zone1"]
+transform = Transform3D(1.6457977, 0, 0, 0, 1.5961199, 0, 0, 0, 1, -3.24833, 2.1657052, 0)
+text = "S"
+
+[node name="Label3D5" type="Label3D" parent="zone1"]
+transform = Transform3D(1.6457977, 0, 0, 0, 1.5961199, 0, 0, 0, 1, -2.7999434, 2.1657052, 0)
+text = "D"
+
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_m5hwo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 170.26355, 7.6808033, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 170.13686, 7.870863, 0)
 
 [node name="Zone2" type="Node3D" parent="."]
 
@@ -154,9 +175,17 @@ size = Vector3(0.20791817, 4.7646484, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.93387, 0.70679104, 0.02801323)
 worn_mask = 1
 
-[node name="Mask2" parent="Zone2" instance=ExtResource("4_wtlyx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 173.66579, 8.166622, 0.02801323)
-worn_mask = 3
+[node name="Label3D" type="Label3D" parent="Zone2"]
+transform = Transform3D(1.6457977, 0, 0, 0, 1.5961199, 0, 0, 0, 1, 55.961784, 1.7612321, 0)
+text = "E: Grab"
+
+[node name="Sprite3D" type="Sprite3D" parent="Zone2"]
+transform = Transform3D(0.00027524558, 0.021315534, 0, 0.014862036, -0.0003947646, 0, 0, 0, 1, 56.843628, 2.9715588, 0)
+texture = ExtResource("6_uoico")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Zone2"]
+transform = Transform3D(0.00027524558, 0.021315534, 0, 0.014862036, -0.0003947646, 0, 0, 0, 1, 56.843628, 2.6496322, 0)
+texture = ExtResource("6_uoico")
 
 [node name="Zone3" type="Node3D" parent="."]
 
@@ -221,9 +250,29 @@ transform = Transform3D(0.49167728, 0, 0, 0, 0.64609575, 0, 0, 0, 0.44324768, 16
 [node name="BreakingPlatform5" parent="Zone3" instance=ExtResource("2_wtlyx")]
 transform = Transform3D(0.49167728, 0, 0, 0, 0.64609575, 0, 0, 0, 0.44324768, 165.5547, 7.40907, 0)
 
+[node name="Sprite3D" type="Sprite3D" parent="Zone3"]
+transform = Transform3D(0.010165481, 0.015554514, 0, 0.010845223, -0.014579605, 0, 0, 0, 0.99999994, 128.05551, 3.0481284, 0)
+texture = ExtResource("6_uoico")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Zone3"]
+transform = Transform3D(-0.011834437, 0.01290023, 0, 0.008994552, 0.01697327, 0, 0, 0, 0.99999994, 127.42461, 4.0165052, 0)
+texture = ExtResource("6_uoico")
+
 [node name="Zone4" type="Node3D" parent="."]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Zone4"]
 transform = Transform3D(3.0894706, 0, 0, 0, 1, 0, 0, 0, 2.0857952, 173.37941, 7.4323573, 0)
 use_collision = true
 size = Vector3(3.0433817, 0.375, 1)
+
+[node name="Label3D" type="Label3D" parent="Zone4"]
+transform = Transform3D(1.6457977, 0, 0, 0, 1.5961199, 0, 0, 0, 1, 175.35226, 9.941057, 0)
+text = "Q to Change"
+
+[node name="Mask2" parent="Zone4" instance=ExtResource("4_wtlyx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 173.66579, 8.166622, 0.02801323)
+worn_mask = 3
+
+[node name="Mask3" parent="Zone4" instance=ExtResource("4_wtlyx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.8814, 2.8311858, 0.02801323)
+worn_mask = 2
