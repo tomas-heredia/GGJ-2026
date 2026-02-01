@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dyfrp0eaua0k1"]
+[gd_scene load_steps=11 format=3 uid="uid://dyfrp0eaua0k1"]
 
 [ext_resource type="PackedScene" uid="uid://rm3wg8bi4pdg" path="res://Scenes/player.tscn" id="1_ko2s7"]
 [ext_resource type="Script" uid="uid://4b8sruijec6w" path="res://Scripts/test.gd" id="1_ys1qc"]
 [ext_resource type="PackedScene" uid="uid://cv2p01h1vlr2p" path="res://Scenes/Mask.tscn" id="2_gxb1y"]
+[ext_resource type="PackedScene" uid="uid://dihxhs0qa8n7o" path="res://Scenes/deathzone.tscn" id="3_qc4db"]
+[ext_resource type="PackedScene" uid="uid://bi4vkebgn5dh4" path="res://Scenes/checkpoint.tscn" id="5_35xla"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ko2s7"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -66,3 +68,12 @@ size = Vector3(0.3848877, 5.055725, 5.1987305)
 
 [node name="CharacterBody3D2" parent="." instance=ExtResource("1_ko2s7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06804085, 2.0183077, -2.9300778)
+
+[node name="deathzone" parent="." instance=ExtResource("3_qc4db")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.831458, 0, -2.2530162)
+
+[node name="deathzone2" parent="." instance=ExtResource("3_qc4db")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.168648, 0, -1.208765)
+
+[node name="checkpoint" parent="." instance=ExtResource("5_35xla")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.77261, 1.8657389, -2.5369573)

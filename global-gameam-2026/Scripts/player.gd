@@ -23,6 +23,8 @@ var jumps_used: int = 0
 var nearby_mask: Node3D = null
 var equipped_mask: Node3D = null
 
+func _ready() -> void:
+	Global.last_checkpoint_position = global_position
 
 func _physics_process(delta: float) -> void:
 	# Input (left / right only)
