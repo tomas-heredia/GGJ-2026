@@ -2,14 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://c10wntvijx6to" path="res://Scenes/Objects/table.tscn" id="1_k541i"]
 [ext_resource type="PackedScene" uid="uid://rm3wg8bi4pdg" path="res://Scenes/player.tscn" id="2_m5hwo"]
-[ext_resource type="PackedScene" uid="uid://bi4vkebgn5dh4" path="res://Scenes/checkpoint.tscn" id="2_q2tg5"]
-[ext_resource type="PackedScene" uid="uid://ca3ycwfhayvqc" path="res://Scenes/breaking_platform.tscn" id="2_wtlyx"]
-[ext_resource type="PackedScene" uid="uid://5l10oegs5nfa" path="res://Scenes/moving_platform.tscn" id="4_knogg"]
+[ext_resource type="PackedScene" path="res://Scenes/checkpoint.tscn" id="2_q2tg5"]
+[ext_resource type="PackedScene" path="res://Scenes/breaking_platform.tscn" id="2_wtlyx"]
+[ext_resource type="PackedScene" path="res://Scenes/moving_platform.tscn" id="4_knogg"]
 [ext_resource type="PackedScene" uid="uid://cv2p01h1vlr2p" path="res://Scenes/Mask.tscn" id="4_wtlyx"]
-[ext_resource type="PackedScene" uid="uid://dihxhs0qa8n7o" path="res://Scenes/deathzone.tscn" id="5_d68a7"]
+[ext_resource type="PackedScene" path="res://Scenes/deathzone.tscn" id="5_d68a7"]
 [ext_resource type="Texture2D" uid="uid://c45dpfvyl4u85" path="res://Art/UI/red_arrow.png" id="6_uoico"]
 [ext_resource type="PackedScene" path="res://Scenes/phasing_platform_black.tscn" id="7_c458c"]
 [ext_resource type="PackedScene" path="res://Scenes/phasing_platform_white.tscn" id="8_pvlc2"]
+[ext_resource type="Texture2D" uid="uid://qbrc3k16svqi" path="res://Art/BackGround/ALL_wallbackground.png" id="9_pvlc2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5dsmb"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -41,20 +42,6 @@ _data = {
 point_count = 2
 
 [node name="Level_1" type="Node3D"]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = -10
-visible = false
-
-[node name="Parallax2D" type="Parallax2D" parent="CanvasLayer"]
-z_index = -4096
-repeat_size = Vector2(1152, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Parallax2D"]
-z_index = -1000
-position = Vector2(577.5, 325.5)
-scale = Vector2(0.43082112, 0.43133333)
-texture = ExtResource("9_pvlc2")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_b828a")
@@ -145,7 +132,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.612291, 0.70620704, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.61229, 0.70620704, 0)
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_m5hwo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5260925, 2.4107685, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46939468, 1.7074566, 0)
 
 [node name="Zone2" type="Node3D" parent="."]
 
@@ -463,6 +450,44 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 209.71892, 9.790773, 0)
 
 [node name="checkpoint4" parent="Zone4" instance=ExtResource("2_q2tg5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 238.35922, 12.963754, 0)
+
+[node name="BackGround" type="Node3D" parent="."]
+
+[node name="Sprite3D" type="Sprite3D" parent="BackGround"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -28.139862, 10.793347, -2.2208233)
+texture = ExtResource("9_pvlc2")
+
+[node name="Sprite3D2" type="Sprite3D" parent="BackGround"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 11.860138, 10.793347, -2.2208233)
+texture = ExtResource("9_pvlc2")
+
+[node name="Sprite3D3" type="Sprite3D" parent="BackGround"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 51.860138, 10.793347, -2.2208233)
+texture = ExtResource("9_pvlc2")
+
+[node name="Sprite3D4" type="Sprite3D" parent="BackGround"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 91.86014, 10.793347, -2.2208233)
+texture = ExtResource("9_pvlc2")
+
+[node name="Sprite3D5" type="Sprite3D" parent="BackGround"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 131.86014, 10.793347, -2.2208233)
+texture = ExtResource("9_pvlc2")
+
+[node name="Sprite3D6" type="Sprite3D" parent="BackGround"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 171.86014, 10.793347, -2.2208233)
+texture = ExtResource("9_pvlc2")
+
+[node name="Sprite3D7" type="Sprite3D" parent="BackGround"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 211.86014, 10.793347, -2.2208233)
+texture = ExtResource("9_pvlc2")
+
+[node name="Sprite3D8" type="Sprite3D" parent="BackGround"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 251.86014, 10.793347, -2.2208233)
+texture = ExtResource("9_pvlc2")
+
+[node name="Sprite3D9" type="Sprite3D" parent="BackGround"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 291.86014, 10.793347, -2.2208233)
+texture = ExtResource("9_pvlc2")
 
 [editable path="zone1/deathzone2"]
 [editable path="Zone2/deathzone"]

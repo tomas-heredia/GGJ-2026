@@ -1,14 +1,16 @@
 [gd_scene load_steps=5 format=3 uid="uid://c8sm8iv41pj0y"]
 
 [ext_resource type="Script" uid="uid://7wjlmxajlgu3" path="res://phasing_platform_2.gd" id="1_3a4uo"]
-[ext_resource type="Material" uid="uid://04iycqc6npi2" path="res://transparentMaterial.tres" id="2_liaam"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ujuwg"]
 size = Vector3(5, 0.7, 2)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3a4uo"]
+albedo_color = Color(0.47843137, 0.47843137, 0.47843137, 0.5568628)
+
 [sub_resource type="BoxMesh" id="BoxMesh_ne8n3"]
 lightmap_size_hint = Vector2i(39, 38)
-material = ExtResource("2_liaam")
+material = SubResource("StandardMaterial3D_3a4uo")
 size = Vector3(5, 0.7, 2)
 
 [node name="PhasingPlatformBlack" type="StaticBody3D"]
