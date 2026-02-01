@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://npv1s7fv5pkw"]
+
+[ext_resource type="AudioStream" uid="uid://x47eavv8sppi" path="res://Art/music-sfx/GGJ Background music.mp3" id="1_px1li"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
+stream = ExtResource("1_px1li")
+volume_db = -15.408
+autoplay = true
