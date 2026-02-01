@@ -37,7 +37,109 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"meshes": {
+"body": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/character/rat_mesh_folder/body.res",
+"save_to_file/path": "uid://gah0ifyd7ik"
+},
+"ear_r": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/character/rat_mesh_folder/ear_r.res",
+"save_to_file/path": "uid://bhwirf64bt3ee"
+},
+"ear_r1": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/character/rat_mesh_folder/ear_r1.res",
+"save_to_file/path": "uid://bfr4j5kyikgm8"
+},
+"feet_r": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/character/rat_mesh_folder/feet_r.res",
+"save_to_file/path": "uid://cb6tivptsiwq4"
+},
+"feet_r1": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/character/rat_mesh_folder/feet_r1.res",
+"save_to_file/path": "uid://b82oxdqk0c0t7"
+},
+"head": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/character/rat_mesh_folder/head.res",
+"save_to_file/path": "uid://bhas6vnditdwh"
+},
+"pCube1": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/character/rat_mesh_folder/pCube1.res",
+"save_to_file/path": "uid://gcm6ubqikdcv"
+},
+"pCube2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/character/rat_mesh_folder/pCube2.res",
+"save_to_file/path": "uid://cifg2840ajpv4"
+},
+"pSphere1": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/character/rat_mesh_folder/pSphere1.res",
+"save_to_file/path": "uid://b7c4q2mqymvhg"
+},
+"pSphere2": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/character/rat_mesh_folder/pSphere2.res",
+"save_to_file/path": "uid://cram1d5hknt7i"
+},
+"tail": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": true,
+"save_to_file/fallback_path": "res://Art/character/rat_mesh_folder/tail.res",
+"save_to_file/path": "uid://clyds1kx6p0yc"
+}
+}
+}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1
