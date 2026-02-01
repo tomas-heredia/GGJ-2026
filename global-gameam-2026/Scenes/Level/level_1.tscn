@@ -3,14 +3,14 @@
 [ext_resource type="Material" uid="uid://cb4rugu71q80x" path="res://Art/Materials/floor_tex.tres" id="1_akeww"]
 [ext_resource type="PackedScene" uid="uid://c10wntvijx6to" path="res://Scenes/Objects/table.tscn" id="1_k541i"]
 [ext_resource type="PackedScene" uid="uid://rm3wg8bi4pdg" path="res://Scenes/player.tscn" id="2_m5hwo"]
-[ext_resource type="PackedScene" uid="uid://bi4vkebgn5dh4" path="res://Scenes/checkpoint.tscn" id="2_q2tg5"]
-[ext_resource type="PackedScene" uid="uid://ca3ycwfhayvqc" path="res://Scenes/breaking_platform.tscn" id="2_wtlyx"]
-[ext_resource type="PackedScene" uid="uid://5l10oegs5nfa" path="res://Scenes/moving_platform.tscn" id="4_knogg"]
+[ext_resource type="PackedScene" path="res://Scenes/checkpoint.tscn" id="2_q2tg5"]
+[ext_resource type="PackedScene" path="res://Scenes/breaking_platform.tscn" id="2_wtlyx"]
+[ext_resource type="PackedScene" path="res://Scenes/moving_platform.tscn" id="4_knogg"]
 [ext_resource type="PackedScene" uid="uid://cv2p01h1vlr2p" path="res://Scenes/Mask.tscn" id="4_wtlyx"]
-[ext_resource type="PackedScene" uid="uid://dihxhs0qa8n7o" path="res://Scenes/deathzone.tscn" id="5_d68a7"]
+[ext_resource type="PackedScene" uid="uid://cih4okwlpkjt" path="res://Scenes/deathzone.tscn" id="5_d68a7"]
 [ext_resource type="Texture2D" uid="uid://c45dpfvyl4u85" path="res://Art/UI/red_arrow.png" id="6_uoico"]
-[ext_resource type="PackedScene" uid="uid://c8sm8iv41pj0y" path="res://Scenes/phasing_platform_black.tscn" id="7_c458c"]
-[ext_resource type="PackedScene" uid="uid://chbvki7tiupk" path="res://Scenes/phasing_platform_white.tscn" id="8_pvlc2"]
+[ext_resource type="PackedScene" path="res://Scenes/phasing_platform_black.tscn" id="7_c458c"]
+[ext_resource type="PackedScene" path="res://Scenes/phasing_platform_white.tscn" id="8_pvlc2"]
 [ext_resource type="Texture2D" uid="uid://qbrc3k16svqi" path="res://Art/BackGround/ALL_wallbackground.png" id="9_pvlc2"]
 [ext_resource type="Texture2D" uid="uid://b88ybicshn28c" path="res://Art/BackGround/SKY_03.png" id="12_mt3j2"]
 
@@ -73,6 +73,7 @@ size = Vector3(1.5449219, 0.3173828, 1)
 [node name="CSGBox3D2" type="CSGBox3D" parent="zone1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0731711, 2.9492908, 0.014144897)
 material_override = ExtResource("1_akeww")
+use_collision = true
 size = Vector3(1, 5.9052734, 2.0313416)
 
 [node name="Table" parent="zone1" instance=ExtResource("1_k541i")]
@@ -145,7 +146,7 @@ transform = Transform3D(3.644397, 0, 0, 0, 1, 0, 0, 0, 1.3816353, 83.094215, -2.
 transform = Transform3D(18.714804, 0, 0, 0, 1, 0, 0, 0, 1, 3.9670296, 0, 0)
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_m5hwo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 247.73189, 5.9262943, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.31880093, 2.537035, 0)
 
 [node name="Zone2" type="Node3D" parent="."]
 
