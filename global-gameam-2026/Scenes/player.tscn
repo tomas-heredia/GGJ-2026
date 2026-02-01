@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://rm3wg8bi4pdg"]
+[gd_scene load_steps=9 format=3 uid="uid://rm3wg8bi4pdg"]
 
 [ext_resource type="Script" uid="uid://ba3oq6o6k4ylk" path="res://Scripts/player.gd" id="1_4flbx"]
 [ext_resource type="AudioStream" uid="uid://bgqn1smatytj3" path="res://Art/music-sfx/jump.mp3" id="3_6t5aa"]
 [ext_resource type="AudioStream" uid="uid://b2d4g5bufc2g" path="res://Art/music-sfx/running-14658.mp3" id="4_vgqql"]
 [ext_resource type="AudioStream" uid="uid://ctrw23f178yl6" path="res://Art/music-sfx/mouse-squeak-261126.mp3" id="5_fkybt"]
+[ext_resource type="AudioStream" uid="uid://ryo15wu816ko" path="res://Art/music-sfx/yay-6326.mp3" id="6_3smsa"]
 [ext_resource type="PackedScene" uid="uid://vndbkf6i3u07" path="res://Art/Animations/ratcolor2.glb" id="6_x3wgy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fkybt"]
@@ -55,3 +56,6 @@ root_node = NodePath("../MeshInstance3D")
 
 [node name="Marker3D" type="Marker3D" parent="CharacterModel"]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.3563802e-09, 0.26389492, -0.1225397)
+
+[node name="WinSfx" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_3smsa")

@@ -33,6 +33,7 @@ var equipped_mask: Node3D = null
 @onready var jump_sfx: AudioStreamPlayer3D = $JumpSfx
 @onready var interaction_sfx: AudioStreamPlayer3D = $InteractionSfx
 @onready var running_sfx: AudioStreamPlayer3D = $RunningSfx
+@onready var win_sfx: AudioStreamPlayer3D = $WinSfx
 var _sprint_sfx_playing := false
 
 const ANIM_IDLE := "mixamo_com"
@@ -153,6 +154,8 @@ func _process(_delta: float) -> void:
 	if nearby_mask and Input.is_action_just_pressed("interact"):
 		equip_mask(nearby_mask)
 		interaction_sfx.play()
+		if mask_final:
+			win_sfx.play()
 
 
 # --- Mask power handling ---
