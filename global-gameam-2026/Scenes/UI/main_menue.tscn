@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cea36tejoa3sp"]
+[gd_scene load_steps=3 format=3 uid="uid://cea36tejoa3sp"]
 
-[ext_resource type="Script" uid="uid://i60ngy5a7eig" path="res://Scripts/main_menue.gd" id="1_og3yx"]
+[ext_resource type="Script" path="res://Scripts/main_menue.gd" id="1_og3yx"]
+[ext_resource type="Texture2D" uid="uid://b54lt2nq26i5q" path="res://Art/BackGround/title_ugly.png" id="2_uc1ms"]
 
 [node name="Main_menue" type="Control"]
 layout_mode = 3
@@ -11,28 +12,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_og3yx")
 
-[node name="Title" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -177.0
-offset_top = 99.0
-offset_right = 178.0
-offset_bottom = 168.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 50
-text = "MICEQUERADE"
-
 [node name="Start" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 489.0
-offset_top = 295.5
-offset_right = -489.0
-offset_bottom = -295.5
+offset_left = 581.0
+offset_top = 571.0
+offset_right = -397.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 35
@@ -43,10 +31,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 489.0
-offset_top = 378.0
-offset_right = -489.0
-offset_bottom = -213.0
+offset_left = 776.0
+offset_top = 571.0
+offset_right = -202.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 35
@@ -57,10 +45,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 489.0
-offset_top = 463.0
-offset_right = -489.0
-offset_bottom = -128.0
+offset_left = 965.0
+offset_top = 571.0
+offset_right = -13.0
+offset_bottom = -20.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 35
@@ -161,6 +149,13 @@ offset_right = 1109.0
 offset_bottom = 607.0
 theme_override_font_sizes/font_size = 30
 text = "QUIT"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.92941177)
+z_index = -1
+position = Vector2(577.00006, 328.00003)
+scale = Vector2(0.6114583, 0.6240741)
+texture = ExtResource("2_uc1ms")
 
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
