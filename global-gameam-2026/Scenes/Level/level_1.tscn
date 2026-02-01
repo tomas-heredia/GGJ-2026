@@ -142,7 +142,7 @@ transform = Transform3D(3.644397, 0, 0, 0, 1, 0, 0, 0, 1.3816353, 83.094215, -2.
 transform = Transform3D(18.714804, 0, 0, 0, 1, 0, 0, 0, 1, 3.9670296, 0, 0)
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_m5hwo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46939468, 1.7074566, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 247.73189, 5.9262943, 0)
 
 [node name="Zone2" type="Node3D" parent="."]
 
@@ -342,14 +342,14 @@ use_collision = true
 size = Vector3(2.4399624, 0.375, 1)
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="Zone4"]
-transform = Transform3D(3.0894706, 0, 0, 0, 1, 0, 0, 0, 2.0857952, 248.03937, 5.2038875, 0)
+transform = Transform3D(3.0894706, 0, 0, 0, 1, 0, 0, 0, 2.0857952, 252.55081, 5.2038875, 0)
 use_collision = true
-size = Vector3(2.4399624, 0.375, 1)
+size = Vector3(5.360484, 0.375, 1)
 
-[node name="CSGBox3D8" type="CSGBox3D" parent="Zone4"]
-transform = Transform3D(3.0894706, 0, 0, 0, 1, 0, 0, 0, 2.0857952, 249.36803, 7.088627, 0)
+[node name="CSGBox3D10" type="CSGBox3D" parent="Zone4"]
+transform = Transform3D(3.0894706, 0, 0, 0, 1, 0, 0, 0, 2.0857952, 253.74341, 13.250664, 0)
 use_collision = true
-size = Vector3(1.5798445, 0.375, 1)
+size = Vector3(4.588445, 0.375, 1)
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="Zone4"]
 transform = Transform3D(3.0894706, 0, 0, 0, 1, 0, 0, 0, 2.0857952, 241.69698, 15.672462, 0)
@@ -367,9 +367,9 @@ use_collision = true
 size = Vector3(2.353152, 0.375, 1)
 
 [node name="CSGBox3D9" type="CSGBox3D" parent="Zone4"]
-transform = Transform3D(-1.3504506e-07, -1, 0, 3.0894706, -4.371139e-08, 0, 0, 0, 2.0857952, 251.6344, 6.1213064, 0)
+transform = Transform3D(-1.3504506e-07, -1, 0, 3.0894706, -4.371139e-08, 0, 0, 0, 2.0857952, 260.8918, 9.2505865, 0)
 use_collision = true
-size = Vector3(0.7161268, 0.375, 1)
+size = Vector3(2.741898, 0.375, 1)
 
 [node name="Label3D" type="Label3D" parent="Zone4"]
 transform = Transform3D(1.6457977, 0, 0, 0, 1.5961199, 0, 0, 0, 1, 175.35226, 9.941057, 0)
@@ -466,6 +466,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 209.71892, 9.790773, 0)
 
 [node name="checkpoint4" parent="Zone4" instance=ExtResource("2_q2tg5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 238.35922, 12.963754, 0)
+
+[node name="Mask" parent="Zone4" instance=ExtResource("4_wtlyx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 252.4367, 6.213665, 0)
+worn_mask = 4
 
 [node name="BackGround" type="Node3D" parent="."]
 
