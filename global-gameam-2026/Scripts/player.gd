@@ -1,7 +1,7 @@
 extends CharacterBody3D
 
-@export var walk_speed := 5.0
-@export var sprint_speed := 9.0
+@export var walk_speed := 3.0
+@export var sprint_speed := 6.0
 var current_direction: float = 0.0
 @export var accel := 18.0
 @export var decel := 22.0
@@ -62,6 +62,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y = jump_velocity
 			jumps_used += 1
 			jump_sfx.play()
+			
 
 	# Wall Jump (only when wall-slide power is enabled)
 	if mask_wall_bounce and is_on_wall() and Input.is_action_pressed("jump") and wall_jump_true:
