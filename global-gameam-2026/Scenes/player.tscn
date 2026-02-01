@@ -20,9 +20,6 @@ shape = SubResource("SphereShape3D_6t5aa")
 transform = Transform3D(1, 0, 0, 0, 0.9999673, -0.008098245, 0, 0.008098245, 0.9999673, 2.1533778, 1.1365379, 3.8526251)
 current = true
 
-[node name="Marker3D" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1715743, 0.5266397, 0)
-
 [node name="JumpSfx" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_6t5aa")
 volume_db = -9.412
@@ -46,3 +43,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.30371505, 0)
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="CharacterModel"]
 root_node = NodePath("../MeshInstance3D")
+
+[node name="Marker3D" type="Marker3D" parent="CharacterModel"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 5.3563802e-09, 0.26389492, -0.1225397)
