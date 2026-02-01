@@ -1,16 +1,17 @@
-[gd_scene load_steps=17 format=3 uid="uid://dyf3qejo4n8wq"]
+[gd_scene load_steps=18 format=3 uid="uid://dyf3qejo4n8wq"]
 
 [ext_resource type="PackedScene" uid="uid://c10wntvijx6to" path="res://Scenes/Objects/table.tscn" id="1_k541i"]
 [ext_resource type="PackedScene" uid="uid://rm3wg8bi4pdg" path="res://Scenes/player.tscn" id="2_m5hwo"]
-[ext_resource type="PackedScene" path="res://Scenes/checkpoint.tscn" id="2_q2tg5"]
-[ext_resource type="PackedScene" path="res://Scenes/breaking_platform.tscn" id="2_wtlyx"]
-[ext_resource type="PackedScene" path="res://Scenes/moving_platform.tscn" id="4_knogg"]
+[ext_resource type="PackedScene" uid="uid://bi4vkebgn5dh4" path="res://Scenes/checkpoint.tscn" id="2_q2tg5"]
+[ext_resource type="PackedScene" uid="uid://ca3ycwfhayvqc" path="res://Scenes/breaking_platform.tscn" id="2_wtlyx"]
+[ext_resource type="PackedScene" uid="uid://5l10oegs5nfa" path="res://Scenes/moving_platform.tscn" id="4_knogg"]
 [ext_resource type="PackedScene" uid="uid://cv2p01h1vlr2p" path="res://Scenes/Mask.tscn" id="4_wtlyx"]
-[ext_resource type="PackedScene" path="res://Scenes/deathzone.tscn" id="5_d68a7"]
+[ext_resource type="PackedScene" uid="uid://dihxhs0qa8n7o" path="res://Scenes/deathzone.tscn" id="5_d68a7"]
 [ext_resource type="Texture2D" uid="uid://c45dpfvyl4u85" path="res://Art/UI/red_arrow.png" id="6_uoico"]
-[ext_resource type="PackedScene" path="res://Scenes/phasing_platform_black.tscn" id="7_c458c"]
-[ext_resource type="PackedScene" path="res://Scenes/phasing_platform_white.tscn" id="8_pvlc2"]
+[ext_resource type="PackedScene" uid="uid://c8sm8iv41pj0y" path="res://Scenes/phasing_platform_black.tscn" id="7_c458c"]
+[ext_resource type="PackedScene" uid="uid://chbvki7tiupk" path="res://Scenes/phasing_platform_white.tscn" id="8_pvlc2"]
 [ext_resource type="Texture2D" uid="uid://qbrc3k16svqi" path="res://Art/BackGround/ALL_wallbackground.png" id="9_pvlc2"]
+[ext_resource type="Texture2D" uid="uid://b88ybicshn28c" path="res://Art/BackGround/SKY_03.png" id="12_mt3j2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5dsmb"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -53,7 +54,7 @@ shadow_enabled = true
 [node name="zone1" type="Node3D" parent="."]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="zone1"]
-transform = Transform3D(3.0894706, 0, 0, 0, 1, 0, 0, 0, 2.0857952, 8.965264, 0.051126838, 0)
+transform = Transform3D(3.0894706, 0, 0, 0, 1, 0, 0, 0, 2.0857952, 10.993365, 0.051126838, 0)
 use_collision = true
 size = Vector3(10.166016, 0.3173828, 1)
 
@@ -68,7 +69,7 @@ use_collision = true
 size = Vector3(1.5449219, 0.3173828, 1)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="zone1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.101272, 2.9492908, 0.014144897)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0731711, 2.9492908, 0.014144897)
 size = Vector3(1, 5.9052734, 2.0313416)
 
 [node name="Table" parent="zone1" instance=ExtResource("1_k541i")]
@@ -101,19 +102,19 @@ transform = Transform3D(1.6457977, 0, 0, 0, 1.5961199, 0, 0, 0, 1, 4.048229, 2.5
 text = "Space"
 
 [node name="Label3D2" type="Label3D" parent="zone1"]
-transform = Transform3D(1.6457977, 0, 0, 0, 1.5961199, 0, 0, 0, 1, -3.255859, 2.6242578, 0)
+transform = Transform3D(1.6457977, 0, 0, 0, 1.5961199, 0, 0, 0, 1, -1.2745984, 2.6242578, 0)
 text = "W"
 
 [node name="Label3D3" type="Label3D" parent="zone1"]
-transform = Transform3D(1.6457977, 0, 0, 0, 1.5961199, 0, 0, 0, 1, -3.7471647, 2.1657052, 0)
+transform = Transform3D(1.6457977, 0, 0, 0, 1.5961199, 0, 0, 0, 1, -1.7659042, 2.1657052, 0)
 text = "A"
 
 [node name="Label3D4" type="Label3D" parent="zone1"]
-transform = Transform3D(1.6457977, 0, 0, 0, 1.5961199, 0, 0, 0, 1, -3.24833, 2.1657052, 0)
+transform = Transform3D(1.6457977, 0, 0, 0, 1.5961199, 0, 0, 0, 1, -1.2670696, 2.1657052, 0)
 text = "S"
 
 [node name="Label3D5" type="Label3D" parent="zone1"]
-transform = Transform3D(1.6457977, 0, 0, 0, 1.5961199, 0, 0, 0, 1, -2.7999434, 2.1657052, 0)
+transform = Transform3D(1.6457977, 0, 0, 0, 1.5961199, 0, 0, 0, 1, -0.8186829, 2.1657052, 0)
 text = "D"
 
 [node name="deathzone" parent="zone1" instance=ExtResource("5_d68a7")]
@@ -237,12 +238,12 @@ use_collision = true
 size = Vector3(0.21859932, 4.7646484, 1)
 
 [node name="CSGBox3D16" type="CSGBox3D" parent="Zone3"]
-transform = Transform3D(3.0894706, 0, 0, 0, 1, 0, 0, 0, 2.0857952, 154.87541, 6.134539, 0)
+transform = Transform3D(3.0894706, 0, 0, 0, 1, 0, 0, 0, 2.0857952, 155.63844, 6.573382, 0)
 use_collision = true
-size = Vector3(0.21859932, 6.2368164, 1)
+size = Vector3(0.21859932, 7.114502, 1)
 
 [node name="CSGBox3D18" type="CSGBox3D" parent="Zone3"]
-transform = Transform3D(3.0894706, 0, 0, 0, 1, 0, 0, 0, 2.0857952, 157.46056, 10.41836, 0)
+transform = Transform3D(3.0894706, 0, 0, 0, 1, 0, 0, 0, 2.0857952, 159.03577, 10.41836, 0)
 use_collision = true
 size = Vector3(0.21859932, 3.6202393, 1)
 
@@ -251,18 +252,23 @@ transform = Transform3D(3.0894706, 0, 0, 0, 1, 0, 0, 0, 2.0857952, 147.4557, 7.9
 use_collision = true
 size = Vector3(0.21859932, 4.7646484, 1)
 
+[node name="CSGBox3D19" type="CSGBox3D" parent="Zone3"]
+transform = Transform3D(3.0894706, 0, 0, 0, 1, 0, 0, 0, 2.0857952, 153.18336, 5.3395376, 0)
+use_collision = true
+size = Vector3(0.13566685, 1.0388184, 1)
+
 [node name="CSGBox3D11" type="CSGBox3D" parent="Zone3"]
 transform = Transform3D(3.0894706, 0, 0, 0, 1, 0, 0, 0, 2.0857952, 143.06477, 7.0467176, 0)
 use_collision = true
 size = Vector3(0.21859932, 3.7041016, 1)
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="Zone3"]
-transform = Transform3D(3.0894706, 0, 0, 0, 1, 0, 0, 0, 2.0857952, 149.84175, 3.203631, 0)
+transform = Transform3D(3.0894706, 0, 0, 0, 1, 0, 0, 0, 2.0857952, 150.3483, 3.203631, 0)
 use_collision = true
-size = Vector3(3.0433817, 0.375, 1)
+size = Vector3(3.3713002, 0.375, 1)
 
 [node name="CSGBox3D17" type="CSGBox3D" parent="Zone3"]
-transform = Transform3D(3.0894706, 0, 0, 0, 1, 0, 0, 0, 2.0857952, 151.994, 9.062552, 0)
+transform = Transform3D(3.0894706, 0, 0, 0, 1, 0, 0, 0, 2.0857952, 152.75703, 9.926415, 0)
 use_collision = true
 size = Vector3(1.6575739, 0.375, 1)
 
@@ -280,13 +286,13 @@ size = Vector3(0.8539851, 0.375, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 152.43417, 5.9553576, 0)
 
 [node name="BreakingPlatform3" parent="Zone3" instance=ExtResource("2_wtlyx")]
-transform = Transform3D(0.49167728, 0, 0, 0, 0.64609575, 0, 0, 0, 0.44324768, 157.55829, 6.9923415, 0)
+transform = Transform3D(0.49167728, 0, 0, 0, 0.64609575, 0, 0, 0, 0.44324768, 159.1335, 6.9923415, 0)
 
 [node name="BreakingPlatform4" parent="Zone3" instance=ExtResource("2_wtlyx")]
-transform = Transform3D(0.49167728, 0, 0, 0, 0.64609575, 0, 0, 0, 0.44324768, 161.38382, 10.411051, 0)
+transform = Transform3D(0.49167728, 0, 0, 0, 0.64609575, 0, 0, 0, 0.44324768, 162.95903, 10.411051, 0)
 
 [node name="BreakingPlatform5" parent="Zone3" instance=ExtResource("2_wtlyx")]
-transform = Transform3D(0.49167728, 0, 0, 0, 0.64609575, 0, 0, 0, 0.44324768, 165.5547, 7.40907, 0)
+transform = Transform3D(0.49167728, 0, 0, 0, 0.64609575, 0, 0, 0, 0.44324768, 167.12991, 7.40907, 0)
 
 [node name="Sprite3D" type="Sprite3D" parent="Zone3"]
 transform = Transform3D(0.010165481, 0.015554514, 0, 0.010845223, -0.014579605, 0, 0, 0, 0.99999994, 128.05551, 3.0481284, 0)
@@ -309,6 +315,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 146.4435, 3.9944644, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 153.72784, 10.155808, 0)
 
 [node name="Zone4" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.132103, 0, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Zone4"]
 transform = Transform3D(3.0894706, 0, 0, 0, 1, 0, 0, 0, 2.0857952, 178.07495, 7.4323573, 0)
@@ -364,7 +371,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 173.66579, 8.166622, 0.028013
 worn_mask = 3
 
 [node name="Mask3" parent="Zone4" instance=ExtResource("4_wtlyx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 125.8814, 2.8311858, 0.02801323)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 124.1559, 2.8595123, 0.02801323)
 worn_mask = 2
 
 [node name="PhasingPlatformBlack" parent="Zone4" instance=ExtResource("7_c458c")]
@@ -488,6 +495,46 @@ texture = ExtResource("9_pvlc2")
 [node name="Sprite3D9" type="Sprite3D" parent="BackGround"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 291.86014, 10.793347, -2.2208233)
 texture = ExtResource("9_pvlc2")
+
+[node name="Sky" type="Sprite3D" parent="BackGround"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -28.051935, 10.92085, -32.879135)
+texture = ExtResource("12_mt3j2")
+
+[node name="Sky2" type="Sprite3D" parent="BackGround"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 11.944298, 10.92085, -32.879135)
+texture = ExtResource("12_mt3j2")
+
+[node name="Sky3" type="Sprite3D" parent="BackGround"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 50.966667, 10.92085, -32.879135)
+texture = ExtResource("12_mt3j2")
+
+[node name="Sky4" type="Sprite3D" parent="BackGround"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 90.9629, 10.92085, -32.879135)
+texture = ExtResource("12_mt3j2")
+
+[node name="Sky5" type="Sprite3D" parent="BackGround"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 130.86897, 10.92085, -32.879135)
+texture = ExtResource("12_mt3j2")
+
+[node name="Sky6" type="Sprite3D" parent="BackGround"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 170.8652, 10.92085, -32.879135)
+texture = ExtResource("12_mt3j2")
+
+[node name="Sky7" type="Sprite3D" parent="BackGround"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 209.88757, 10.92085, -32.879135)
+texture = ExtResource("12_mt3j2")
+
+[node name="Sky8" type="Sprite3D" parent="BackGround"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 249.88382, 10.92085, -32.879135)
+texture = ExtResource("12_mt3j2")
+
+[node name="Sky9" type="Sprite3D" parent="BackGround"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 289.87112, 10.92085, -32.879135)
+texture = ExtResource("12_mt3j2")
+
+[node name="Sky10" type="Sprite3D" parent="BackGround"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 329.86734, 10.92085, -32.879135)
+texture = ExtResource("12_mt3j2")
 
 [editable path="zone1/deathzone2"]
 [editable path="Zone2/deathzone"]
