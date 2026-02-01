@@ -64,6 +64,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.851244, 0.9252382, 0.005656
 [node name="BreakingPlatform2" parent="BreakingPlatform" instance=ExtResource("3_jjvhh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.45068, 0.7209719, 0.48364305)
 
+[node name="Spikes" parent="." instance=ExtResource("5_6bp64")]
+transform = Transform3D(0.99801356, 0, 0.06299955, 0, 1, 0, -0.06299955, 0, 0.99801356, -6.8191566, 0.20981789, 0.702536)
+
 [node name="PhasingPlatformWhite" parent="." instance=ExtResource("4_kry3j")]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -8.937393, 2.7151318, 0.025617123)
 
@@ -72,9 +75,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8547964, 0)
 
 [node name="PhasingPlatformWhite3" parent="PhasingPlatformWhite" instance=ExtResource("4_kry3j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3841858e-07, 7.7009506, 0)
-
-[node name="Spikes" parent="PhasingPlatformWhite" instance=ExtResource("5_6bp64")]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -2.5053136, -2.1182365, 0.44104004)
 
 [node name="PhasingPlatformBlack" parent="." instance=ExtResource("5_21xkr")]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, -10.963481, 2.6855965, 0.071938515)
