@@ -2,14 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://c10wntvijx6to" path="res://Scenes/Objects/table.tscn" id="1_k541i"]
 [ext_resource type="PackedScene" uid="uid://rm3wg8bi4pdg" path="res://Scenes/player.tscn" id="2_m5hwo"]
-[ext_resource type="PackedScene" uid="uid://bi4vkebgn5dh4" path="res://Scenes/checkpoint.tscn" id="2_q2tg5"]
-[ext_resource type="PackedScene" uid="uid://ca3ycwfhayvqc" path="res://Scenes/breaking_platform.tscn" id="2_wtlyx"]
-[ext_resource type="PackedScene" uid="uid://5l10oegs5nfa" path="res://Scenes/moving_platform.tscn" id="4_knogg"]
+[ext_resource type="PackedScene" path="res://Scenes/checkpoint.tscn" id="2_q2tg5"]
+[ext_resource type="PackedScene" path="res://Scenes/breaking_platform.tscn" id="2_wtlyx"]
+[ext_resource type="PackedScene" path="res://Scenes/moving_platform.tscn" id="4_knogg"]
 [ext_resource type="PackedScene" uid="uid://cv2p01h1vlr2p" path="res://Scenes/Mask.tscn" id="4_wtlyx"]
-[ext_resource type="PackedScene" uid="uid://dihxhs0qa8n7o" path="res://Scenes/deathzone.tscn" id="5_d68a7"]
+[ext_resource type="PackedScene" path="res://Scenes/deathzone.tscn" id="5_d68a7"]
 [ext_resource type="Texture2D" uid="uid://c45dpfvyl4u85" path="res://Art/UI/red_arrow.png" id="6_uoico"]
 [ext_resource type="PackedScene" path="res://Scenes/phasing_platform_black.tscn" id="7_c458c"]
 [ext_resource type="PackedScene" path="res://Scenes/phasing_platform_white.tscn" id="8_pvlc2"]
+[ext_resource type="Texture2D" uid="uid://qbrc3k16svqi" path="res://Art/BackGround/ALL_wallbackground.png" id="9_pvlc2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5dsmb"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
