@@ -1,5 +1,5 @@
 extends CharacterBody3D
-signal Change
+
 @export var walk_speed := 5.0
 @export var sprint_speed := 9.0
 var current_direction: float = 0.0
@@ -90,7 +90,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("Phase") and mask_phase:
 		
-		emit_signal("Change")
+		Signals.Change.emit()
 
 
 # MASK MECHANICS

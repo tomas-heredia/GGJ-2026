@@ -2,6 +2,12 @@ extends StaticBody3D
 
 var count = 0
 
+func _ready() -> void:
+	Signals.connect("Change",_on_character_body_3d_change)
+	$CollisionShape3D.hide()
+	$MeshInstance3D.hide()
+	position += Vector3(0, -10000, 0)
+
 func _on_character_body_3d_change() -> void:
 	count += 1
 	if count % 2 == 1:
