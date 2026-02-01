@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://5g672msvkakc"
-path="res://.godot/imported/chand_model.fbx-bfeb14b93b05fd5b230c79481f7e1414.scn"
+uid="uid://cjvlblxoj45fa"
+path="res://.godot/imported/final_mask.fbx-68d98686e2c9f53d6cfcaebf78944387.scn"
 
 [deps]
 
-source_file="res://Art/art_objects/chand_model.fbx"
-dest_files=["res://.godot/imported/chand_model.fbx-bfeb14b93b05fd5b230c79481f7e1414.scn"]
+source_file="res://Art/character/final_mask.fbx"
+dest_files=["res://.godot/imported/final_mask.fbx-68d98686e2c9f53d6cfcaebf78944387.scn"]
 
 [params]
 
@@ -39,14 +39,14 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "meshes": {
-"chand_model": {
+"Last_mask_model": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 20.0,
 "save_to_file/enabled": true,
-"save_to_file/fallback_path": "res://Art/art_objects/chand_mesh/chand_model.res",
-"save_to_file/path": "uid://br8midiol7jv6"
+"save_to_file/fallback_path": "res://Art/character/last_mask_mesh/Last_mask_model.res",
+"save_to_file/path": "uid://xae01acn8hm4"
 }
 }
 }
