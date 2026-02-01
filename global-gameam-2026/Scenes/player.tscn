@@ -6,7 +6,7 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_6t5aa"]
 radius = 0.5207036
 
-[node name="CharacterBody3D" type="CharacterBody3D" groups=["player"]]
+[node name="CharacterBody3D" type="CharacterBody3D" groups=["SpawnPoint", "player"]]
 script = ExtResource("1_4flbx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

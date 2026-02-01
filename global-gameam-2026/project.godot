@@ -28,6 +28,7 @@ folder_colors={
 [global_group]
 
 player=""
+SpawnPoint=""
 
 [input]
 
@@ -72,6 +73,5 @@ Phase={
 ]
 }
 
-[physics]
 
 3d/physics_engine="Jolt Physics"

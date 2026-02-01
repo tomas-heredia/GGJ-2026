@@ -1,18 +1,13 @@
-extends Node3D
+extends Area3D
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	body_entered.connect(_on_body_entered)
 
+func _on_body_entered(body: Node3D) -> void:
+	if body is CharacterBody3D:
+		_respawn(body)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-func _on_area_3d_body_entered(body: Node3D) -> void:
-	if body.is_in_group("player"):
-		kill_player()
-		
-func kill_player():
-	pass
-	
+func _respawn(body: CharacterBody3D) -> void:
+	# Teleport the player to the last saved checkpoint.
+	body.global_position = Global.last_checkpoint_position
+	body.velocity = Vector3.ZERO
