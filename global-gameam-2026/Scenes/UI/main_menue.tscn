@@ -1,0 +1,168 @@
+[gd_scene load_steps=2 format=3 uid="uid://cea36tejoa3sp"]
+
+[ext_resource type="Script" uid="uid://i60ngy5a7eig" path="res://Scripts/main_menue.gd" id="1_og3yx"]
+
+[node name="Main_menue" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_og3yx")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -177.0
+offset_top = 99.0
+offset_right = 178.0
+offset_bottom = 168.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "MICEQUERADE"
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 489.0
+offset_top = 295.5
+offset_right = -489.0
+offset_bottom = -295.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 35
+text = "START"
+
+[node name="Credits" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 489.0
+offset_top = 378.0
+offset_right = -489.0
+offset_bottom = -213.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 35
+text = "CREDIT"
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 489.0
+offset_top = 463.0
+offset_right = -489.0
+offset_bottom = -128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 35
+text = "QUIT"
+
+[node name="Credits_screen" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1584723, 0.15847233, 0.1584723, 1)
+
+[node name="Title" type="Label" parent="Credits_screen"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -106.0
+offset_top = 46.0
+offset_right = 106.0
+offset_bottom = 115.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "CREDITS"
+
+[node name="Label" type="Label" parent="Credits_screen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.245
+anchor_top = 0.30600002
+anchor_right = 0.418
+anchor_bottom = 0.44000003
+offset_left = -0.23999023
+offset_top = -0.28800964
+offset_right = -0.53601074
+offset_bottom = -0.120025635
+theme_override_font_sizes/font_size = 30
+text = "3D Artist: Tiffany Tran"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="Credits_screen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.245
+anchor_top = 0.30600002
+anchor_right = 0.418
+anchor_bottom = 0.44000003
+offset_left = -11.23999
+offset_top = 157.71199
+offset_right = 10.463989
+offset_bottom = 157.87997
+theme_override_font_sizes/font_size = 30
+text = "Programmer: Leeann Gaona"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="Credits_screen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.245
+anchor_top = 0.30600002
+anchor_right = 0.418
+anchor_bottom = 0.44000003
+offset_left = 350.76
+offset_top = 157.71199
+offset_right = 394.464
+offset_bottom = 157.87997
+theme_override_font_sizes/font_size = 30
+text = "Programmer: Joseph Bucholtz"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="Credits_screen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.521
+anchor_top = 0.30600002
+anchor_right = 0.78900003
+anchor_bottom = 0.46500003
+offset_left = -0.1920166
+offset_top = -0.28800964
+offset_right = 0.07196045
+offset_bottom = -0.32000732
+theme_override_font_sizes/font_size = 30
+text = "GD / Produccer: Tomás Heredia"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="Credits_screen"]
+layout_mode = 0
+offset_left = 991.0
+offset_top = 547.0
+offset_right = 1109.0
+offset_bottom = 607.0
+theme_override_font_sizes/font_size = 30
+text = "QUIT"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Credits_screen/Button" to="." method="_on_button_pressed"]
