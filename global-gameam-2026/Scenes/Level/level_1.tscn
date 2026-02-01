@@ -472,7 +472,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 209.71892, 9.790773, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 238.35922, 12.963754, 0)
 
 [node name="Mask" parent="Zone4" instance=ExtResource("4_wtlyx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 252.4367, 6.213665, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 257.71564, 6.213665, 0)
 worn_mask = 4
 
 [node name="BackGround" type="Node3D" parent="."]
